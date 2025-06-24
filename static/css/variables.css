@@ -1,0 +1,63 @@
+:root {
+    /* Light theme variables - extracted from interface */
+    /* Primary colors */
+    --primary-blue: #4A90E2;
+    --secondary-purple: #8B7EC8;
+    --tertiary-orange: #FF8C42;
+
+    /* Background colors */
+    --bg-primary: #f8f9fa;
+    --bg-secondary: #ffffff;
+    --bg-sidebar: #f4f5f7;
+    --bg-table-header: #e9ecef;
+    --hover-bg: #e3f2fd;
+
+    /* Text colors */
+    --text-primary: #2c3e50;
+    --text-secondary: #6c757d;
+    --text-muted: #adb5bd;
+    --text-white: #ffffff;
+
+    /* Border and accent colors */
+    --border-color: #dee2e6;
+    --border-light: #f1f3f4;
+    --accent-color: var(--tertiary-orange);
+
+    /* Status colors */
+    --success-color: #28a745;
+    --warning-color: #ffc107;
+    --danger-color: #dc3545;
+    --info-color: var(--primary-blue);
+}
+
+[data-theme="dark"] {
+    /* Dark theme variables - adapted from interface colors */
+    /* Primary colors (darker variants) */
+    --primary-blue: #3a7bc8;
+    --secondary-purple: #7b6eb8;
+    --tertiary-orange: #e67c32;
+
+    /* Background colors */
+    --bg-primary: #1a1a1a;
+    --bg-secondary: #2d2d2d;
+    --bg-sidebar: #252525;
+    --bg-table-header: #333333;
+    --hover-bg: #3d3d3d;
+
+    /* Text colors */
+    --text-primary: #ffffff;
+    --text-secondary: #cccccc;
+    --text-muted: #999999;
+    --text-white: #ffffff;
+
+    /* Border and accent colors */
+    --border-color: #404040;
+    --border-light: #555555;
+    --accent-color: var(--tertiary-orange);
+
+    /* Status colors (darker variants) */
+    --success-color: #20c997;
+    --warning-color: #ffc107;
+    --danger-color: #dc3545;
+    --info-color: var(--primary-blue);
+}

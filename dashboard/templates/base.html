@@ -1,0 +1,268 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script>
+        // Check for saved theme preference
+        const currentTheme = localStorage.getItem('theme') || 'light';
+        document.documentElement.setAttribute('data-theme', currentTheme);
+    </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="{% static 'js/collapse-nav.js' %}"></script>
+    <script src="{% static 'js/theme-toggle.js' %}"></script>
+    <link rel="stylesheet" href="{% static 'css/variables.css' %}">
+    <link rel="stylesheet" href="{% static 'css/sidebar_navbar.css' %}">
+    <link rel="stylesheet" href="{% static 'css/main.css' %}">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <title>Dashboard</title>
+</head>
+<body class="container-body">
+
+    <!-- Theme Toggle Button -->
+    <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">
+        <i class="fas fa-moon"></i>
+    </button>
+
+    <!-- Hamburger Menu Button -->
+    <button id="hamburgerMenu" class="hamburger-menu" aria-label="Toggle sidebar">
+        <i class="fas fa-bars"></i>
+    </button>
+
+    <!-- Add Overlay -->
+    <div class="sidebar-overlay" id="sidebarOverlay"></div>
+    
+    <div class="dashboard-container">
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <div class="user-profile">
+                    <img src="#" alt="User Profile" class="profile-image">
+                    <div class="user-info">
+                        <h3>{{ request.user.name }}</h3>
+                        <p>{{ request.user.role }}</p>
+                    </div>
+                </div>
+            </div>
+            
+            <nav class="sidebar-nav">
+                <div class="nav-section">
+
+                    <div class="nav-item">
+                        <a href="#">
+                            <div class="nav-header">
+                                <i class="fa-solid fa-chart-line"></i>
+                                <span>لوحة التحكم</span>
+                            </div>
+                        </a>
+                    </div>
+
+                    <div class="nav-item collapsible">
+                        <div class="nav-header">
+                            <i class="fas fa-users"></i>
+                            <span>المستخدمين</span>
+                            <i class="fas fa-chevron-down arrow"></i>
+                        </div>
+                        <div class="nav-content">
+                            <a href="#" class="sub-item">الأدمن</a>
+                            <a href="#" class="sub-item">العملاء</a>
+                            <a href="#" class="sub-item">الشركاء</a>
+                        </div>
+                    </div>
+
+                    <div class="nav-item">
+                        <a href="#">
+                            <div class="nav-header">
+                                <span>أنواع المنظمات</span>
+                                <i class="fa-solid fa-building"></i>
+                            </div>
+                        </a>
+                    </div>
+
+                    <div class="nav-item">
+                        <a href="#">
+                            <div class="nav-header">
+                                <span>باقات الاشتراك</span>
+                                <i class="fa-regular fa-credit-card"></i>
+                            </div>
+                        </a>
+                    </div>
+
+                    <div class="nav-item">
+                        <a href="#">
+                            <div class="nav-header">
+                                <span>معلومات تعريفية</span>
+                                <i class="fa-solid fa-circle-info"></i>
+                            </div>
+                        </a>
+                    </div>
+
+                    <div class="nav-item">
+                        <a href="#">
+                            <div class="nav-header">
+                                <span>الأفرع</span>
+                                <i class="fa-solid fa-map-location-dot"></i>
+                            </div>
+                        </a>
+                    </div>
+
+                    <div class="nav-item">
+                        <a href="#">
+                            <div class="nav-header">
+                                <span>تواصل اجتماعي</span>
+                                <i class="fa-brands fa-facebook"></i>
+                            </div>
+                        </a>
+                    </div>
+
+                    <div class="nav-item">
+                        <a href="#">
+                            <div class="nav-header">
+                                <span>برامج التوصيل</span>
+                                <i class="fa-solid fa-truck"></i>
+                            </div>
+                        </a>
+                    </div>
+
+                    <div class="nav-item collapsible">
+                        <div class="nav-header">
+                            <span>عروض و خصومات</span>
+                            <i class="fa-solid fa-briefcase"></i>
+                            <i class="fas fa-chevron-down arrow"></i>
+                        </div>
+                        <div class="nav-content">
+                            <a href="#" class="sub-item">عروض الأفراد</a>
+                        </div>
+                    </div>
+
+                    <div class="nav-item">
+                        <a href="#">
+                            <div class="nav-header">
+                                <i class="fa-regular fa-image"></i>
+                                <span>الكتالوجات</span>
+                            </div>
+                        </a>
+                    </div>
+
+                    <div class="nav-item collapsible">
+                        <div class="nav-header">
+                            <i class="fa-solid fa-images"></i>
+                            <span>المعرض</span>
+                            <i class="fas fa-chevron-down arrow"></i>
+                        </div>
+                        <div class="nav-content">
+                            <a href="#" class="sub-item">معرض الصور</a>
+                        </div>
+                    </div>
+
+                    <div class="nav-item collapsible">
+                        <div class="nav-header">
+                            <i class="fa-solid fa-share-from-square"></i>
+                            <span>محفظة الروابط</span>
+                            <i class="fas fa-chevron-down arrow"></i>
+                        </div>
+                        <div class="nav-content">
+                            <a href="#" class="sub-item">برامج التوصيل</a>
+                        </div>
+                    </div>
+
+                    <div class="nav-item collapsible">
+                        <div class="nav-header">
+                            <i class="fas fa-question-circle"></i>
+                            <span>مركز المساعدة</span>
+                            <i class="fas fa-chevron-down arrow"></i>
+                        </div>
+                        <div class="nav-content">
+                            <a href="#" class="sub-item">الأسئلة الشائعة</a>
+                            <a href="#" class="sub-item">التواصل معنا</a>
+                        </div>
+                    </div>
+
+                    <!-- <div class="nav-item collapsible">
+                        <div class="nav-header">
+                            <i class="fas fa-info-circle"></i>
+                            <span>عن التطبيق</span>
+                            <i class="fas fa-chevron-down arrow"></i>
+                        </div>
+                        <div class="nav-content">
+                            <a href="#" class="sub-item">تقارير المبيعات</a>
+                            <a href="#" class="sub-item">تقارير المستخدمين</a>
+                            <a href="#" class="sub-item">تقارير الأداء</a>
+                        </div>
+                    </div> -->
+
+                    <div class="nav-item">
+                        <a href="">
+                            <div class="nav-header">
+                                <i class="fas fa-shield-alt"></i>
+                                <span>سياسة الخصوصية</span>
+                            </div>
+                        </a>
+                    </div>
+
+                    <div class="nav-item">
+                        <a href="">
+                            <div class="nav-header">
+                                <i class="fas fa-file-contract"></i>
+                                <span>الشروط و الأحكام</span>
+                            </div>
+                        </a>
+                    </div>
+
+                    <div class="nav-item">
+                        <a href="#">
+                            <div class="nav-header">
+                                <i class="fas fa-bell"></i>
+                                <span>الإشعارات</span>
+                            </div>
+                        </a>
+                    </div>
+
+                    <div class="nav-item">
+                        <a href="#">
+                            <div class="nav-header">
+                                <i class="fas fa-headset"></i>
+                                <span>الدعم</span>
+                            </div>
+                        </a>
+                    </div>
+
+                    <div class="nav-item">
+                        <a href="#">
+                            <div class="nav-header">
+                                <i class="fas fa-info-circle"></i>
+                                <span>عن التطبيق</span>
+                            </div>
+                        </a>
+                    </div>
+
+                    <div class="nav-item">
+                        <a href="#">
+                            <div class="nav-header">
+                                <i class="fas fa-flag"></i>
+                                <span>التبليغات</span>
+                            </div>
+                        </a>
+                    </div>
+
+                    <div class="nav-item">
+                        <form action="#" method="post" id="logout-form">
+                            {% csrf_token %}
+                            <button type="submit" class="logout-btn">
+                                <i class="fas fa-sign-out-alt"></i>
+                                <span>تسجيل الخروج</span>
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </nav>
+        </aside>
+
+        <main class="main-content">
+            {% block content %}
+            {% endblock %}
+        </main>
+    </div>
+        
+</body>
+
+</html>

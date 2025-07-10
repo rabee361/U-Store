@@ -1,0 +1,134 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>إنشاء متجر جديد - متجر</title>
+    <link rel="stylesheet" href="{% static 'css/login.css' %}">
+</head>
+<body>
+    <div class="auth-container">
+        <!-- Logo -->
+        <div class="auth-logo">متجر</div>
+
+        <!-- Cards Container -->
+        <div class="cards-container">
+            <!-- Card 1: Store Name -->
+            <div class="register-card active" data-card="1">
+                <div class="card-header">
+                    <h1 class="card-title">أدخل بياناتك لإنشاء متجرك الخاص</h1>
+                    <div class="card-counter">1/4</div>
+                </div>
+
+                <div class="card-content">
+                    <div class="input-group">
+                        <label class="auth-label">اسم المتجر</label>
+                        <input
+                            type="text"
+                            name="store_name"
+                            class="auth-input"
+                            placeholder="مثال: متجر رائع"
+                            required
+                            data-validation="required"
+                        >
+                    </div>
+
+                    <button type="button" class="auth-button next-btn" disabled>
+                        المتابعة
+                    </button>
+                </div>
+            </div>
+
+            <!-- Card 2: Store Category -->
+            <div class="register-card" data-card="2">
+                <div class="card-header">
+                    <h1 class="card-title">أدخل بياناتك لإنشاء متجرك الخاص</h1>
+                    <div class="card-counter">2/4</div>
+                </div>
+
+                <div class="card-content">
+                    <div class="input-group">
+                        <label class="auth-label">مجال النشاط التجاري</label>
+                        <div class="custom-select">
+                            <select name="store_category" class="auth-select" required data-validation="required">
+                                <option value="">اختر مجال النشاط</option>
+                                <option value="fashion">الأزياء والملابس</option>
+                                <option value="electronics">الإلكترونيات</option>
+                                <option value="food">الأطعمة والمشروبات</option>
+                                <option value="books">الكتب والقرطاسية</option>
+                                <option value="home">المنزل والحديقة</option>
+                                <option value="beauty">الجمال والعناية</option>
+                                <option value="sports">الرياضة واللياقة</option>
+                                <option value="toys">الألعاب والهوايات</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <button type="button" class="auth-button next-btn" disabled>
+                        المتابعة
+                    </button>
+                </div>
+            </div>
+
+            <!-- Card 3: Store Type -->
+            <div class="register-card" data-card="3">
+                <div class="card-header">
+                    <h1 class="card-title">أدخل بياناتك لإنشاء متجرك الخاص</h1>
+                    <div class="card-counter">3/4</div>
+                </div>
+
+                <div class="card-content">
+                    <div class="input-group">
+                        <label class="auth-label">نوع النشاط التجاري</label>
+                        <div class="custom-select">
+                            <select name="store_type" class="auth-select" required data-validation="required">
+                                <option value="">اختر نوع النشاط</option>
+                                <option value="retail">تجارة التجزئة</option>
+                                <option value="wholesale">تجارة الجملة</option>
+                                <option value="services">الخدمات</option>
+                                <option value="manufacturing">التصنيع</option>
+                                <option value="digital">المنتجات الرقمية</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <button type="button" class="auth-button next-btn" disabled>
+                        المتابعة
+                    </button>
+                </div>
+            </div>
+
+            <!-- Card 4: Terms and Conditions -->
+            <div class="register-card" data-card="4">
+                <div class="card-header">
+                    <h1 class="card-title">أدخل بياناتك لإنشاء متجرك الخاص</h1>
+                    <div class="card-counter">4/4</div>
+                </div>
+
+                <div class="card-content">
+                    <div class="terms-content">
+                        <p class="terms-text">
+                            السماح بالوصول إلى الموقع الجغرافي لتسهيل خدمات التوصيل والعثور على العملاء وتحديد نطاق الخدمة
+                        </p>
+
+                        <div class="checkbox-group">
+                            <label class="custom-checkbox">
+                                <input type="checkbox" name="terms_agreement" data-validation="required">
+                                <span class="checkmark"></span>
+                                <span class="checkbox-text">أوافق على الشروط والأحكام</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <button type="button" class="auth-button submit-btn" disabled>
+                        إنشاء المتجر
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="{% static 'js/cards_animation.js' %}"></script>
+</body>
+</html>

@@ -3,20 +3,21 @@
 /* Sidebar Styles */
 .sidebar {
     width: 250px;
-    background-color: var(--bg-secondary);
-    color: var(--text-primary);
+    background: var(--bg-sidebar);
+    color: var(--text-sidebar);
     height: 100vh;
     position: fixed;
     right: 0;
     top: 0;
     overflow-y: auto;
-    transition: transform 0.3s ease, background-color 0.5s ease;
+    transition: transform 0.3s ease;
     border-left: 1px solid var(--border-color);
+    box-shadow: -2px 0 10px rgba(0, 0, 0, 0.1);
 }
 
 .sidebar-header {
     padding: 20px;
-    border-bottom: 1px solid var(--border-color);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .user-profile {
@@ -36,13 +37,13 @@
     margin: 0;
     font-size: 16px;
     font-weight: 600;
-    color: var(--text-primary);
+    color: var(--text-sidebar);
 }
 
 .user-info p {
     margin: 5px 0 0;
     font-size: 14px;
-    color: var(--text-secondary);
+    color: rgba(255, 255, 255, 0.8);
 }
 
 /* Navigation Styles */
@@ -53,7 +54,7 @@
 
 .nav-item {
     margin-bottom: 5px;
-    color: var(--text-primary);
+    color: var(--text-sidebar);
 }
 
 .nav-item a {
@@ -78,14 +79,15 @@
     font-size: 19px;
     width: 20px;
     text-align: center;
-    transition: background-color 0.5s ease;
+    transition: all 0.3s ease;
+    color: var(--text-sidebar);
 }
 
 .nav-header span {
     flex-grow: 1;
     font-weight: 600;
     font-size: 15px;
-    color: var(--text-primary);
+    color: var(--text-sidebar);
 }
 
 .nav-header .arrow {
@@ -95,13 +97,13 @@
 .nav-content {
     max-height: 0;
     overflow: hidden;
-    transition: max-height 0.3s ease-in-out, background-color 0.5s ease;
-    background-color: var(--bg-secondary);
+    transition: max-height 0.3s ease-in-out;
+    background-color: rgba(255, 255, 255, 0.05);
 }
 
 .nav-item.active .nav-content {
     max-height: 1000px;
-    transition: max-height 0.7s cubic-bezier(0.4, 0, 0.2, 1), background-color 0.5s ease;
+    transition: max-height 0.7s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .nav-item.active .arrow {
@@ -110,7 +112,7 @@
 
 .nav-content .sub-item {
     padding: 10px 20px 10px 50px;
-    color: var(--text-secondary);
+    color: rgba(255, 255, 255, 0.8);
     text-decoration: none;
     font-size: 14px;
     display: block;
@@ -123,7 +125,7 @@
 
 .sub-item:hover {
     background-color: var(--hover-bg);
-    color: var(--text-primary);
+    color: var(--text-sidebar);
 }
 
 .nav-item:not(.collapsible) .nav-header:hover,

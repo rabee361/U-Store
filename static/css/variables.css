@@ -1,63 +1,69 @@
 :root {
-    /* Light theme variables - extracted from interface */
+    /* Light theme variables - purple/blue gradient theme */
     /* Primary colors */
-    --primary-blue: #4A90E2;
-    --secondary-purple: #8B7EC8;
-    --tertiary-orange: #FF8C42;
+    --primary-purple: #6366f1;
+    --secondary-blue: #3b82f6;
+    --tertiary-purple: #8b5cf6;
+    --light-purple: #a855f7;
 
     /* Background colors */
-    --bg-primary: #f8f9fa;
+    --bg-primary: #f8fafc;
     --bg-secondary: #ffffff;
-    --bg-sidebar: #f4f5f7;
-    --bg-table-header: #e9ecef;
-    --hover-bg: #e3f2fd;
+    --bg-sidebar: linear-gradient(180deg, #6366f1 0%, #8b5cf6 50%, #a855f7 100%);
+    --bg-auth: linear-gradient(135deg, #c7b3ff 0%, #b8a3ff 50%, #a693ff 100%);
+    --bg-table-header: #f1f5f9;
+    --hover-bg: rgba(255, 255, 255, 0.1);
 
     /* Text colors */
-    --text-primary: #2c3e50;
-    --text-secondary: #6c757d;
-    --text-muted: #adb5bd;
+    --text-primary: #1e293b;
+    --text-secondary: #64748b;
+    --text-muted: #94a3b8;
     --text-white: #ffffff;
+    --text-sidebar: #ffffff;
 
     /* Border and accent colors */
-    --border-color: #dee2e6;
-    --border-light: #f1f3f4;
-    --accent-color: var(--tertiary-orange);
+    --border-color: #e2e8f0;
+    --border-light: #f1f5f9;
+    --accent-color: rgba(255, 255, 255, 0.2);
 
     /* Status colors */
-    --success-color: #28a745;
-    --warning-color: #ffc107;
-    --danger-color: #dc3545;
-    --info-color: var(--primary-blue);
+    --success-color: #10b981;
+    --warning-color: #f59e0b;
+    --danger-color: #ef4444;
+    --info-color: var(--secondary-blue);
 }
 
 [data-theme="dark"] {
-    /* Dark theme variables - adapted from interface colors */
+    /* Dark theme variables - darker purple/blue gradient theme */
     /* Primary colors (darker variants) */
-    --primary-blue: #3a7bc8;
-    --secondary-purple: #7b6eb8;
-    --tertiary-orange: #e67c32;
+    --primary-purple: #4f46e5;
+    --secondary-blue: #2563eb;
+    --tertiary-purple: #7c3aed;
+    --light-purple: #9333ea;
 
     /* Background colors */
-    --bg-primary: #1a1a1a;
-    --bg-secondary: #2d2d2d;
-    --bg-sidebar: #252525;
-    --bg-table-header: #333333;
-    --hover-bg: #3d3d3d;
+    --bg-primary: #0f172a;
+    --bg-secondary: #1e293b;
+    --bg-sidebar: linear-gradient(180deg, #4f46e5 0%, #7c3aed 50%, #9333ea 100%);
+    --bg-auth: linear-gradient(135deg, #a79aff 0%, #9889ff 50%, #8979ff 100%);
+    --bg-table-header: #334155;
+    --hover-bg: rgba(255, 255, 255, 0.1);
 
     /* Text colors */
-    --text-primary: #ffffff;
-    --text-secondary: #cccccc;
-    --text-muted: #999999;
+    --text-primary: #f8fafc;
+    --text-secondary: #cbd5e1;
+    --text-muted: #94a3b8;
     --text-white: #ffffff;
+    --text-sidebar: #ffffff;
 
     /* Border and accent colors */
-    --border-color: #404040;
-    --border-light: #555555;
-    --accent-color: var(--tertiary-orange);
+    --border-color: #475569;
+    --border-light: #64748b;
+    --accent-color: rgba(255, 255, 255, 0.2);
 
     /* Status colors (darker variants) */
-    --success-color: #20c997;
-    --warning-color: #ffc107;
-    --danger-color: #dc3545;
-    --info-color: var(--primary-blue);
+    --success-color: #059669;
+    --warning-color: #d97706;
+    --danger-color: #dc2626;
+    --info-color: var(--secondary-blue);
 }

@@ -1,3 +1,4 @@
 .env
 .venv/
 .augment/
+__pycache__/

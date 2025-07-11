@@ -35,6 +35,18 @@
 
                 <!-- Controls -->
                 <div class="navbar-controls">
+                    <!-- User Avatar -->
+                    <div class="user-avatar">
+                        <img src="{% static 'images/oia.jpg' %}" alt="User Avatar">
+                        {% if request.user.image %}
+                        <img src="{% static 'images/oia.jpg' %}" alt="User Avatar">
+                        {% else %}
+                            <div class="avatar-circle">
+                                {{ "rabee"|first|upper }}
+                            </div>
+                        {% endif %}
+                    </div>
+
                     <!-- Theme Toggle Button -->
                     <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">
                         <i class="fas fa-moon"></i>
@@ -49,128 +61,129 @@
         </div>
     </nav>
 
-    <div class="dashboard-container">
-        <aside class="sidebar">
-            
-            <nav class="sidebar-nav">
-                <div class="nav-section">
+    <aside class="sidebar">
+        <div class="sidebar-header">
+            <img src="{% static 'images/oia.jpg' %}" alt="Store Logo">
+        </div>
 
-                    <div class="nav-item collapsible">
-                        <div class="nav-header">
-                            <div class="icon-text-group">
-                                <i class="fas fa-home"></i>
-                                <span>الرئيسية</span>
-                            </div>
-                            <i class="fas fa-chevron-down arrow"></i>
+        <nav class="sidebar-nav">
+            <div class="nav-section">
+
+                <div class="nav-item collapsible">
+                    <div class="nav-header">
+                        <div class="icon-text-group">
+                            <i class="fas fa-home"></i>
+                            <span>الرئيسية</span>
                         </div>
+                        <i class="fas fa-chevron-down arrow"></i>
                     </div>
-
-                    <div class="nav-item collapsible">
-                        <div class="nav-header">
-                            <div class="icon-text-group">
-                                <i class="fas fa-shopping-cart"></i>
-                                <span>الطلبات</span>
-                            </div>
-                            <i class="fas fa-chevron-down arrow"></i>
-                        </div>
-                    </div>
-
-                    <div class="nav-item collapsible">
-                        <div class="nav-header">
-                            <div class="icon-text-group">
-                                <i class="fas fa-box"></i>
-                                <span>المنتجات</span>
-                            </div>
-                            <i class="fas fa-chevron-down arrow"></i>
-                        </div>
-                    </div>
-
-                    <div class="nav-item collapsible">
-                        <div class="nav-header">
-                            <div class="icon-text-group">
-                                <i class="fas fa-tags"></i>
-                                <span>التسويق</span>
-                            </div>
-                            <i class="fas fa-chevron-down arrow"></i>
-                        </div>
-                    </div>
-
-                    <div class="nav-item collapsible">
-                        <div class="nav-header">
-                            <div class="icon-text-group">
-                                <i class="fas fa-chart-bar"></i>
-                                <span>التحليلات</span>
-                            </div>
-                            <i class="fas fa-chevron-down arrow"></i>
-                        </div>
-                    </div>
-
-                    <div class="nav-item collapsible">
-                        <div class="nav-header">
-                            <div class="icon-text-group">
-                                <i class="fas fa-wallet"></i>
-                                <span>المالية</span>
-                            </div>
-                            <i class="fas fa-chevron-down arrow"></i>
-                        </div>
-                    </div>
-
-                    <div class="nav-item collapsible">
-                        <div class="nav-header">
-                            <div class="icon-text-group">
-                                <i class="fas fa-cog"></i>
-                                <span>تصميم المتجر</span>
-                            </div>
-                            <i class="fas fa-chevron-down arrow"></i>
-                        </div>
-                        <div class="nav-content">
-                            <a href="#" class="sub-item">القوائم</a>
-                            <a href="#" class="sub-item">صفحة المتجر</a>
-                            <a href="#" class="sub-item">المحتويات الإرشادية</a>
-                            <a href="#" class="sub-item">القائمة الرئيسية</a>
-                        </div>
-                    </div>
-
-                    <div class="nav-item collapsible">
-                        <div class="nav-header">
-                            <div class="icon-text-group">
-                                <i class="fas fa-users"></i>
-                                <span>الحسابات</span>
-                            </div>
-                            <i class="fas fa-chevron-down arrow"></i>
-                        </div>
-                    </div>
-
-                    <div class="nav-item collapsible">
-                        <div class="nav-header">
-                            <div class="icon-text-group">
-                                <i class="fas fa-user-friends"></i>
-                                <span>العملاء</span>
-                            </div>
-                            <i class="fas fa-chevron-down arrow"></i>
-                        </div>
-                    </div>
-
-                    <div class="nav-item collapsible">
-                        <div class="nav-header">
-                            <div class="icon-text-group">
-                                <i class="fas fa-cogs"></i>
-                                <span>الإعدادات</span>
-                            </div>
-                            <i class="fas fa-chevron-down arrow"></i>
-                        </div>
-                    </div>
-
                 </div>
-            </nav>
-        </aside>
 
-        <main class="main-content">
-            {% block content %}
-            {% endblock %}
-        </main>
-    </div>
-        
+                <div class="nav-item collapsible">
+                    <div class="nav-header">
+                        <div class="icon-text-group">
+                            <i class="fas fa-shopping-cart"></i>
+                            <span>الطلبات</span>
+                        </div>
+                        <i class="fas fa-chevron-down arrow"></i>
+                    </div>
+                </div>
+
+                <div class="nav-item collapsible">
+                    <div class="nav-header">
+                        <div class="icon-text-group">
+                            <i class="fas fa-box"></i>
+                            <span>المنتجات</span>
+                        </div>
+                        <i class="fas fa-chevron-down arrow"></i>
+                    </div>
+                </div>
+
+                <div class="nav-item collapsible">
+                    <div class="nav-header">
+                        <div class="icon-text-group">
+                            <i class="fas fa-tags"></i>
+                            <span>التسويق</span>
+                        </div>
+                        <i class="fas fa-chevron-down arrow"></i>
+                    </div>
+                </div>
+
+                <div class="nav-item collapsible">
+                    <div class="nav-header">
+                        <div class="icon-text-group">
+                            <i class="fas fa-chart-bar"></i>
+                            <span>التحليلات</span>
+                        </div>
+                        <i class="fas fa-chevron-down arrow"></i>
+                    </div>
+                </div>
+
+                <div class="nav-item collapsible">
+                    <div class="nav-header">
+                        <div class="icon-text-group">
+                            <i class="fas fa-wallet"></i>
+                            <span>المالية</span>
+                        </div>
+                        <i class="fas fa-chevron-down arrow"></i>
+                    </div>
+                </div>
+
+                <div class="nav-item collapsible">
+                    <div class="nav-header">
+                        <div class="icon-text-group">
+                            <i class="fas fa-cog"></i>
+                            <span>تصميم المتجر</span>
+                        </div>
+                        <i class="fas fa-chevron-down arrow"></i>
+                    </div>
+                    <div class="nav-content">
+                        <a href="#" class="sub-item">القوائم</a>
+                        <a href="#" class="sub-item">صفحة المتجر</a>
+                        <a href="#" class="sub-item">المحتويات الإرشادية</a>
+                        <a href="#" class="sub-item">القائمة الرئيسية</a>
+                    </div>
+                </div>
+
+                <div class="nav-item collapsible">
+                    <div class="nav-header">
+                        <div class="icon-text-group">
+                            <i class="fas fa-users"></i>
+                            <span>الحسابات</span>
+                        </div>
+                        <i class="fas fa-chevron-down arrow"></i>
+                    </div>
+                </div>
+
+                <div class="nav-item collapsible">
+                    <div class="nav-header">
+                        <div class="icon-text-group">
+                            <i class="fas fa-user-friends"></i>
+                            <span>العملاء</span>
+                        </div>
+                        <i class="fas fa-chevron-down arrow"></i>
+                    </div>
+                </div>
+
+                <div class="nav-item collapsible">
+                    <div class="nav-header">
+                        <div class="icon-text-group">
+                            <i class="fas fa-cogs"></i>
+                            <span>الإعدادات</span>
+                        </div>
+                        <i class="fas fa-chevron-down arrow"></i>
+                    </div>
+                </div>
+
+            </div>
+        </nav>
+    </aside>
+
+    <main class="main-content">
+        {% block content %}
+        {% endblock %}
+    </main>
+    
 </body>
 
 </html>

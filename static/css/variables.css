@@ -1,29 +1,31 @@
+@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@200..1000&family=Noto+Sans+Arabic:wght@100..900&display=swap');
+
 :root {
-    /* Light theme variables - purple/blue gradient theme */
-    /* Primary colors */
-    --primary-purple: #6366f1;
-    --secondary-blue: #3b82f6;
-    --tertiary-purple: #8b5cf6;
-    --light-purple: #a855f7;
+    /* Light theme variables - harmonized purple gradient theme */
+    /* Primary colors - now harmonized with sidebar gradient */
+    --primary-purple: #8b5cf6;
+    --secondary-blue: #a855f7;
+    --tertiary-purple: #c084fc;
+    --light-purple: #d8b4fe;
 
     /* Background colors */
-    --bg-primary: #f8fafc;
+    --bg-primary: #faf8ff;
     --bg-secondary: #ffffff;
-    --bg-sidebar: linear-gradient(180deg, #c7b3ff 0%, #b8a3ff 50%, #a693ff 100%);
+    --bg-sidebar: linear-gradient(180deg, #f1ecfd 0%, #c5b5fa 50%, #c5baf3 100%);
     --bg-auth: linear-gradient(135deg, #c7b3ff 0%, #b8a3ff 50%, #a693ff 100%);
-    --bg-table-header: #f1f5f9;
-    --hover-bg: rgba(255, 255, 255, 0.1);
+    --bg-table-header: #f8f4ff;
+    --hover-bg: rgba(139, 92, 246, 0.1);
 
     /* Text colors */
-    --text-primary: #1e293b;
-    --text-secondary: #64748b;
-    --text-muted: #94a3b8;
+    --text-primary: #2d1b69;
+    --text-secondary: #6b46c1;
+    --text-muted: #9333ea;
     --text-white: #ffffff;
-    --text-sidebar: #161f2c;
+    --text-sidebar: #1e1b4b;
 
     /* Border and accent colors */
-    --border-light: #f1f5f9;
-    --accent-color: rgba(255, 255, 255, 0.2);
+    --border-light: #e9d5ff;
+    --accent-color: rgba(139, 92, 246, 0.2);
 
     /* Status colors */
     --success-color: #10b981;
@@ -33,35 +35,40 @@
 }
 
 [data-theme="dark"] {
-    /* Dark theme variables - darker purple/blue gradient theme */
-    /* Primary colors (darker variants) */
-    --primary-purple: #4f46e5;
-    --secondary-blue: #2563eb;
-    --tertiary-purple: #7c3aed;
-    --light-purple: #9333ea;
+    /* Dark theme variables - harmonized dark purple gradient theme */
+    /* Primary colors - harmonized with dark theme */
+    --primary-purple: #a855f7;
+    --secondary-blue: #c084fc;
+    --tertiary-purple: #d8b4fe;
+    --light-purple: #e9d5ff;
 
     /* Background colors */
-    --bg-primary: #0f172a;
-    --bg-secondary: #1e293b;
-    --bg-sidebar: linear-gradient(180deg, #c7b3ff 0%, #b8a3ff 50%, #a693ff 100%);
-    --bg-auth: linear-gradient(135deg, #a79aff 0%, #9889ff 50%, #8979ff 100%);
-    --bg-table-header: #334155;
-    --hover-bg: rgba(255, 255, 255, 0.1);
+    --bg-primary: #0f0a1a;
+    --bg-secondary: #1a1625;
+    --bg-sidebar: linear-gradient(180deg, #2d1b69 0%, #1e1b4b 50%, #1a1b3a 100%);
+    --bg-auth: linear-gradient(135deg, #2d1b69 0%, #1e1b4b 50%, #1a1b3a 100%);
+    --bg-table-header: #2d1b69;
+    --hover-bg: rgba(168, 85, 247, 0.15);
 
     /* Text colors */
-    --text-primary: #f8fafc;
-    --text-secondary: #cbd5e1;
-    --text-muted: #94a3b8;
+    --text-primary: #f3f0ff;
+    --text-secondary: #d8b4fe;
+    --text-muted: #c084fc;
     --text-white: #ffffff;
-    --text-sidebar: #161f2c;
+    --text-sidebar: #f3f0ff;
 
     /* Border and accent colors */
-    --border-light: #64748b;
-    --accent-color: rgba(255, 255, 255, 0.2);
+    --border-light: #2d1b69;
+    --accent-color: rgba(168, 85, 247, 0.3);
 
     /* Status colors (darker variants) */
     --success-color: #059669;
     --warning-color: #d97706;
     --danger-color: #dc2626;
     --info-color: var(--secondary-blue);
+}
+
+* {
+    font-family: 'Cairo', 'Noto Sans Arabic', sans-serif;
+    transition: background-color 0.8s ease;
 }

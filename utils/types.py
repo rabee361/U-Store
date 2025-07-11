@@ -1,6 +1,7 @@
+from django.db import models
 
 
-class UserType:
+class UserType(models.TextChoices):
     CUSTOMER = 'customer'
     MERCHANT = 'merchant'
     ADMIN = 'admin'

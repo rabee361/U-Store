@@ -2,6 +2,9 @@ from django.shortcuts import render
 from django.views.generic import TemplateView
 
 
+class DashboardView(TemplateView):
+    template_name = "auth/dashboard.html"
+
 class LoginView(TemplateView):
     template_name = "auth/login.html"
 
@@ -22,3 +25,9 @@ class ChangePasswordView(TemplateView):
 
 class RegisterCardsView(TemplateView):
     template_name = "auth/register_cards.html"
+
+class ConfigurationView(TemplateView):
+    template_name = "config/main/configuration.html"
+
+class CurrencyView(TemplateView):
+    template_name = "config/main/currencies.html"

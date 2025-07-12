@@ -12,12 +12,23 @@ authPatterns = [
     path("register_cards/", views.RegisterCardsView.as_view(), name="register_cards"),
 ]
 
+storePatterns = [
+    path("", views.ProductsView.as_view(), name="products"),
+]
+
+themePatterns = [
+    path("", views.ThemeView.as_view(), name="themes"),
+]
+
 configPattern = [
     path("config/", views.ConfigurationView.as_view(), name="configuration"),
     path("currencies/", views.CurrencyView.as_view(), name="currencies"),
+    path("account/", views.AccountView.as_view(), name="currencies"),
 ]
 
 urlpatterns = [
     path("auth/", include(authPatterns)),
+    path("theme/", include(themePatterns)),
     path("config/", include(configPattern)),
+    path("products/", include(storePatterns)),
 ]

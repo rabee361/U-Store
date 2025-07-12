@@ -31,3 +31,12 @@ class ConfigurationView(TemplateView):
 
 class CurrencyView(TemplateView):
     template_name = "config/main/currencies.html"
+
+class AccountView(TemplateView):
+    template_name = "config/main/account.html"
+
+class ProductsView(TemplateView):
+    template_name = "products/products.html"
+
+class ThemeView(TemplateView):
+    template_name = "themes/theme1/main.html"

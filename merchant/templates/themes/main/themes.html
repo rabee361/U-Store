@@ -1,0 +1,278 @@
+{% extends 'layout/base.html' %}
+{% load static %}
+
+{% block content %}
+<link rel="stylesheet" href="{% static 'css/main.css' %}">
+<link rel="stylesheet" href="{% static 'css/themes-slider.css' %}">
+
+    <!-- Breadcrumb Navigation -->
+    <nav class="breadcrumb">
+        <a href="#" class="breadcrumb-item">الرئيسية</a>
+        <span class="breadcrumb-separator">
+            <i class="fas fa-chevron-right"></i>
+        </span>
+        <a href="{% url 'themes' %}" class="breadcrumb-item active">الثيمات المتوفرة</a>
+    </nav>
+
+    <!-- Section: Popular Themes -->
+    <section class="config-section">
+        <div class="section-title">
+            <h2> الثيمات المميزة</h2>
+        </div>
+        
+        <div class="themes-slider-container">
+            <div class="themes-slider" id="popularThemes">
+                <!-- Theme Card 1 -->
+                <div class="theme-card">
+                    <div class="theme-image">
+                        <img src="{% static 'images/themes/theme1.jpg' %}" alt="ثيم متجر الأزياء">
+                        <div class="theme-overlay">
+                            <span class="theme-price">854 ر.س</span>
+                        </div>
+                    </div>
+                    <div class="theme-content">
+                        <h3 class="theme-title">ثيم متجر الأزياء</h3>
+                        <p class="theme-description">تصميم عصري ومتجاوب لمتاجر الأزياء والملابس</p>
+                        <div class="card-theme-actions">
+                            <button class="btn-theme-show">
+                                <i class="fas fa-eye"></i>
+                                معاينة
+                            </button>
+                            <button class="btn-theme-buy">
+                                <i class="fas fa-shopping-cart"></i>
+                                شراء
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Theme Card 2 -->
+                <div class="theme-card">
+                    <div class="theme-image">
+                        <img src="{% static 'images/themes/theme2.jpg' %}" alt="ثيم الإلكترونيات">
+                        <div class="theme-overlay">
+                            <span class="theme-price">854 ر.س</span>
+                        </div>
+                    </div>
+                    <div class="theme-content">
+                        <h3 class="theme-title">ثيم الإلكترونيات</h3>
+                        <p class="theme-description">تصميم تقني متطور لمتاجر الإلكترونيات والأجهزة</p>
+                        <div class="card-theme-actions">
+                            <button class="btn-theme-show">
+                                <i class="fas fa-eye"></i>
+                                معاينة
+                            </button>
+                            <button class="btn-theme-buy">
+                                <i class="fas fa-shopping-cart"></i>
+                                شراء
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Theme Card 3 -->
+                <div class="theme-card">
+                    <div class="theme-image">
+                        <img src="{% static 'images/themes/theme3.jpg' %}" alt="ثيم المجوهرات">
+                        <div class="theme-overlay">
+                            <span class="theme-price">854 ر.س</span>
+                        </div>
+                    </div>
+                    <div class="theme-content">
+                        <h3 class="theme-title">ثيم المجوهرات</h3>
+                        <p class="theme-description">تصميم أنيق وفاخر لمتاجر المجوهرات والإكسسوارات</p>
+                        <div class="card-theme-actions">
+                            <button class="btn-theme-show">
+                                <i class="fas fa-eye"></i>
+                                معاينة
+                            </button>
+                            <button class="btn-theme-buy">
+                                <i class="fas fa-shopping-cart"></i>
+                                شراء
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Theme Card 4 -->
+                <div class="theme-card">
+                    <div class="theme-image">
+                        <img src="{% static 'images/themes/theme4.jpg' %}" alt="ثيم الطعام">
+                        <div class="theme-overlay">
+                            <span class="theme-price">854 ر.س</span>
+                        </div>
+                    </div>
+                    <div class="theme-content">
+                        <h3 class="theme-title">ثيم الطعام والمشروبات</h3>
+                        <p class="theme-description">تصميم شهي ومميز لمتاجر الطعام والمشروبات</p>
+                        <div class="card-theme-actions">
+                            <button class="btn-theme-show">
+                                <i class="fas fa-eye"></i>
+                                معاينة
+                            </button>
+                            <button class="btn-theme-buy">
+                                <i class="fas fa-shopping-cart"></i>
+                                شراء
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Theme Card 5 -->
+                <div class="theme-card">
+                    <div class="theme-image">
+                        <img src="{% static 'images/themes/theme5.jpg' %}" alt="ثيم الكتب">
+                        <div class="theme-overlay">
+                            <span class="theme-price">854 ر.س</span>
+                        </div>
+                    </div>
+                    <div class="theme-content">
+                        <h3 class="theme-title">ثيم الكتب والمكتبات</h3>
+                        <p class="theme-description">تصميم كلاسيكي وأنيق لمتاجر الكتب والمكتبات</p>
+                        <div class="card-theme-actions">
+                            <button class="btn-theme-show">
+                                <i class="fas fa-eye"></i>
+                                معاينة
+                            </button>
+                            <button class="btn-theme-buy">
+                                <i class="fas fa-shopping-cart"></i>
+                                شراء
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section: Most Downloaded Themes -->
+    <section class="config-section">
+        <div class="section-title">
+            <h2> الثيمات الأكثر تحميلاً</h2>
+        </div>
+        
+        <div class="themes-slider-container">
+            <div class="themes-slider" id="popularDownloads">
+                <!-- Repeat similar theme cards -->
+                <div class="theme-card">
+                    <div class="theme-image">
+                        <img src="{% static 'images/themes/theme6.jpg' %}" alt="ثيم الرياضة">
+                        <div class="theme-overlay">
+                            <span class="theme-price">854 ر.س</span>
+                        </div>
+                    </div>
+                    <div class="theme-content">
+                        <h3 class="theme-title">ثيم الرياضة واللياقة</h3>
+                        <p class="theme-description">تصميم ديناميكي لمتاجر المعدات الرياضية</p>
+                        <div class="card-theme-actions">
+                            <button class="btn-theme-show">
+                                <i class="fas fa-eye"></i>
+                                معاينة
+                            </button>
+                            <button class="btn-theme-buy">
+                                <i class="fas fa-shopping-cart"></i>
+                                شراء
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="theme-card">
+                    <div class="theme-image">
+                        <img src="{% static 'images/themes/theme7.jpg' %}" alt="ثيم التجميل">
+                        <div class="theme-overlay">
+                            <span class="theme-price">854 ر.س</span>
+                        </div>
+                    </div>
+                    <div class="theme-content">
+                        <h3 class="theme-title">ثيم التجميل والعناية</h3>
+                        <p class="theme-description">تصميم جذاب لمتاجر مستحضرات التجميل</p>
+                        <div class="card-theme-actions">
+                            <button class="btn-theme-show">
+                                <i class="fas fa-eye"></i>
+                                معاينة
+                            </button>
+                            <button class="btn-theme-buy">
+                                <i class="fas fa-shopping-cart"></i>
+                                شراء
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="theme-card">
+                    <div class="theme-image">
+                        <img src="{% static 'images/themes/theme8.jpg' %}" alt="ثيم الأطفال">
+                        <div class="theme-overlay">
+                            <span class="theme-price">854 ر.س</span>
+                        </div>
+                    </div>
+                    <div class="theme-content">
+                        <h3 class="theme-title">ثيم الأطفال والألعاب</h3>
+                        <p class="theme-description">تصميم مرح وملون لمتاجر الأطفال</p>
+                        <div class="card-theme-actions">
+                            <button class="btn-theme-show">
+                                <i class="fas fa-eye"></i>
+                                معاينة
+                            </button>
+                            <button class="btn-theme-buy">
+                                <i class="fas fa-shopping-cart"></i>
+                                شراء
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="theme-card">
+                    <div class="theme-image">
+                        <img src="{% static 'images/themes/theme9.jpg' %}" alt="ثيم السيارات">
+                        <div class="theme-overlay">
+                            <span class="theme-price">854 ر.س</span>
+                        </div>
+                    </div>
+                    <div class="theme-content">
+                        <h3 class="theme-title">ثيم السيارات والقطع</h3>
+                        <p class="theme-description">تصميم قوي لمتاجر السيارات وقطع الغيار</p>
+                        <div class="card-theme-actions">
+                            <button class="btn-theme-show">
+                                <i class="fas fa-eye"></i>
+                                معاينة
+                            </button>
+                            <button class="btn-theme-buy">
+                                <i class="fas fa-shopping-cart"></i>
+                                شراء
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="theme-card">
+                    <div class="theme-image">
+                        <img src="{% static 'images/themes/theme10.jpg' %}" alt="ثيم الديكور">
+                        <div class="theme-overlay">
+                            <span class="theme-price">854 ر.س</span>
+                        </div>
+                    </div>
+                    <div class="theme-content">
+                        <h3 class="theme-title">ثيم الديكور والأثاث</h3>
+                        <p class="theme-description">تصميم أنيق لمتاجر الأثاث والديكور</p>
+                        <div class="card-theme-actions">
+                            <button class="btn-theme-show">
+                                <i class="fas fa-eye"></i>
+                                معاينة
+                            </button>
+                            <button class="btn-theme-buy">
+                                <i class="fas fa-shopping-cart"></i>
+                                شراء
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- JavaScript Files -->
+    <script src="{% static 'js/theme-slider.js' %}"></script>
+
+{% endblock %}

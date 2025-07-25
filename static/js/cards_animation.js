@@ -111,14 +111,21 @@ class CardsAnimation {
         this.cards.forEach((card, index) => {
             const cardNum = index + 1;
 
+            // Remove all classes first
+            card.classList.remove('active', 'behind-1', 'behind-2', 'behind-3', 'slide-out');
+
             if (cardNum === cardNumber) {
+                // Current active card (front)
                 card.classList.add('active');
-                card.classList.remove('slide-out');
             } else if (cardNum < cardNumber) {
-                card.classList.remove('active');
+                // Cards that have been completed - slide out
                 card.classList.add('slide-out');
             } else {
-                card.classList.remove('active', 'slide-out');
+                // Cards behind the current one - stack them
+                const behindLevel = cardNum - cardNumber;
+                if (behindLevel <= 3) {
+                    card.classList.add(`behind-${behindLevel}`);
+                }
             }
         });
 
@@ -128,15 +135,8 @@ class CardsAnimation {
 
     nextCard() {
         if (this.currentCard < this.totalCards) {
-            const currentCardElement = document.querySelector(`[data-card="${this.currentCard}"]`);
-
-            // Add slide-out animation to current card
-            currentCardElement.classList.add('slide-out');
-
-            // Show next card after animation delay
-            setTimeout(() => {
-                this.showCard(this.currentCard + 1);
-            }, 300);
+            // Immediately update to next card - the CSS transitions will handle the animation
+            this.showCard(this.currentCard + 1);
         }
     }
 

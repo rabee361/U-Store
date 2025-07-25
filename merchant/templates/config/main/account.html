@@ -1,4 +1,4 @@
-{% extends 'base.html' %}
+{% extends 'layout/base.html' %}
 {% load static %}
 
 {% block content %}
@@ -50,7 +50,9 @@
 
     <!-- Section 2: معلومات الحساب -->
     <section class="config-section">
-        <h2 class="section-title">معلومات الحساب</h2>
+        <div class="section-title">
+            <h2>معلومات الحساب</h2>
+        </div>
         <div class="form-container">
             <form class="account-form">
                 <div class="form-row">
@@ -79,7 +81,9 @@
 
     <!-- Section 3: إعدادات الأمان -->
     <section class="config-section">
-        <h2 class="section-title">إعدادات الأمان</h2>
+        <div class="section-title">
+            <h2>إعدادات الأمان</h2>
+        </div>
         <div class="form-container">
             <form class="account-form">
                 <div class="form-group security-setting">

@@ -12,9 +12,11 @@ class UnitConversion(models.Model):
 class Currency(models.Model):
     name = models.CharField(max_length=100)
     symbol = models.CharField(max_length=10)
-    rate = models.FloatField()
+    parts_name = models.CharField(max_length=100)
+    parts = models.FloatField()
 
 class CurrencyConversion(models.Model):
     currency1 = models.ForeignKey(Currency, on_delete=models.PROTECT, related_name='currency1')
     currency2 = models.ForeignKey(Currency, on_delete=models.PROTECT, related_name='currency2')
     value = models.FloatField(default=0.0)
+    exchange_date = models.DateField(auto_now_add=True)

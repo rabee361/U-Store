@@ -9,26 +9,41 @@
 </head>
 <body>
     <div class="auth-container">
-        <!-- Logo -->
-        <div class="auth-logo">متجر</div>
-
+        {% include 'auth/navbar.html' %}
+ 
         <!-- Verify OTP Card -->
         <div class="auth-card">
             <h1 class="auth-card-title">رمز التحقق</h1>
 
             <p class="auth-text">أدخل رمز التحقق المرسل إلى إيميلك</p>
 
+            <!-- Display messages -->
+            {% if messages %}
+                {% for message in messages %}
+                    <div class="alert alert-{{ message.tags }}">
+                        {{ message }}
+                    </div>
+                {% endfor %}
+            {% endif %}
+
             <form class="auth-form" method="post">
                 {% csrf_token %}
 
+                <!-- Display form errors -->
+                {% if form.non_field_errors %}
+                    <div class="error-message">
+                        {% for error in form.non_field_errors %}
+                            <p>{{ error }}</p>
+                        {% endfor %}
+                    </div>
+                {% endif %}
+
                 <!-- OTP Input Fields -->
                 <div class="otp-container">
-                    <input type="text" class="otp-input" maxlength="1" name="otp1" required>
-                    <input type="text" class="otp-input" maxlength="1" name="otp2" required>
-                    <input type="text" class="otp-input" maxlength="1" name="otp3" required>
                     <input type="text" class="otp-input" maxlength="1" name="otp4" required>
-                    <input type="text" class="otp-input" maxlength="1" name="otp5" required>
-                    <input type="text" class="otp-input" maxlength="1" name="otp6" required>
+                    <input type="text" class="otp-input" maxlength="1" name="otp3" required>
+                    <input type="text" class="otp-input" maxlength="1" name="otp2" required>
+                    <input type="text" class="otp-input" maxlength="1" name="otp1" required>
                 </div>
 
                 <button type="submit" class="auth-button">

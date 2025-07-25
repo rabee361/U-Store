@@ -2,3 +2,4 @@
 .venv/
 .augment/
 __pycache__/
+.pyc

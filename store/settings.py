@@ -39,11 +39,12 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
+    "django_celery_results",  # Add this
     "dashboard",
     "merchant",
     "api",
-    "accounts"
-    # "rest_framework",
+    "accounts",
+    "celery",
 ]
 
 MIDDLEWARE = [
@@ -63,7 +64,8 @@ TEMPLATES = [
         "BACKEND": "django.template.backends.django.DjangoTemplates",
         "DIRS": [
             BASE_DIR / "merchant/templates",
-            BASE_DIR / "dashboard/templates"
+            BASE_DIR / "dashboard/templates",
+            BASE_DIR / "templates"
         ],
         "APP_DIRS": True,
         "OPTIONS": {
@@ -134,3 +136,19 @@ STATIC_ROOT = 'staticfiles'
 # https://docs.djangoproject.com/en/5.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
+
+
+# email setup 
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+EMAIL_HOST_USER='fazaa56153@gmail.com'
+EMAIL_HOST_PASSWORD='ayuqmtzlcvulpupt'
+
+CELERY_BROKER_URL = 'redis://localhost:6379/0'
+CELERY_RESULT_BACKEND = 'redis://localhost:6379/0'
+
+SESSION_COOKIE_SECURITY = True
+SESSION_COOKIE_HTTPONLY  = True
+SESSION_COOKIE_AGE = 3600

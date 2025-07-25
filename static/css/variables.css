@@ -11,8 +11,8 @@
     /* Background colors */
     --bg-primary: #faf8ff;
     --bg-secondary: #ffffff;
-    --bg-sidebar: linear-gradient(180deg, #f1ecfd 0%, #c5b5fa 50%, #c5baf3 100%);
-    --bg-auth: linear-gradient(135deg, #c7b3ff 0%, #b8a3ff 50%, #a693ff 100%);
+    --bg-sidebar: linear-gradient(180deg, #faf8ff 0%, #d5c9fd 50%, #c5baf3 100%);
+    --bg-auth: linear-gradient(135deg, #c7b3ff 0%,   #b8a3ff 50%, #a693ff 100%);
     --bg-table-header: #f8f4ff;
     --hover-bg: rgba(139, 92, 246, 0.1);
 
@@ -45,7 +45,7 @@
     /* Background colors */
     --bg-primary: #0f0a1a;
     --bg-secondary: #1a1625;
-    --bg-sidebar: linear-gradient(180deg, #2d1b69 0%, #1e1b4b 50%, #1a1b3a 100%);
+    --bg-sidebar: linear-gradient(180deg, #0f0a1a 0%, #1e1b4b 50%, #1a1b3a 100%);
     --bg-auth: linear-gradient(135deg, #2d1b69 0%, #1e1b4b 50%, #1a1b3a 100%);
     --bg-table-header: #2d1b69;
     --hover-bg: rgba(168, 85, 247, 0.15);

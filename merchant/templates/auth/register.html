@@ -9,11 +9,15 @@
 </head>
 <body>
     <div class="auth-container">
-        <!-- Logo -->
-        <div class="auth-logo">متجر</div>
 
-        <!-- Cards Container -->
-        <div class="cards-container">
+        {% include 'auth/navbar.html' %}
+
+        <!-- Registration Form -->
+        <form method="post" id="registration-form">
+            {% csrf_token %}
+
+            <!-- Cards Container -->
+            <div class="cards-container">
             <!-- Card 1: Store Name -->
             <div class="register-card active" data-card="1">
                 <div class="card-header">
@@ -24,14 +28,7 @@
                 <div class="card-content">
                     <div class="input-group">
                         <label class="auth-label">اسم المتجر</label>
-                        <input
-                            type="text"
-                            name="store_name"
-                            class="auth-input"
-                            placeholder="مثال: متجر رائع"
-                            required
-                            data-validation="required"
-                        >
+                        {{ form.store_name }}
                     </div>
 
                     <button type="button" class="auth-button next-btn" disabled>
@@ -51,17 +48,7 @@
                     <div class="input-group">
                         <label class="auth-label">مجال النشاط التجاري</label>
                         <div class="custom-select">
-                            <select name="store_category" class="auth-select" required data-validation="required">
-                                <option value="">اختر مجال النشاط</option>
-                                <option value="fashion">الأزياء والملابس</option>
-                                <option value="electronics">الإلكترونيات</option>
-                                <option value="food">الأطعمة والمشروبات</option>
-                                <option value="books">الكتب والقرطاسية</option>
-                                <option value="home">المنزل والحديقة</option>
-                                <option value="beauty">الجمال والعناية</option>
-                                <option value="sports">الرياضة واللياقة</option>
-                                <option value="toys">الألعاب والهوايات</option>
-                            </select>
+                            {{ form.business_type }}
                         </div>
                     </div>
 
@@ -82,14 +69,7 @@
                     <div class="input-group">
                         <label class="auth-label">نوع النشاط التجاري</label>
                         <div class="custom-select">
-                            <select name="store_type" class="auth-select" required data-validation="required">
-                                <option value="">اختر نوع النشاط</option>
-                                <option value="retail">تجارة التجزئة</option>
-                                <option value="wholesale">تجارة الجملة</option>
-                                <option value="services">الخدمات</option>
-                                <option value="manufacturing">التصنيع</option>
-                                <option value="digital">المنتجات الرقمية</option>
-                            </select>
+                            {{ form.store_type }}
                         </div>
                     </div>
 
@@ -114,19 +94,20 @@
 
                         <div class="checkbox-group">
                             <label class="custom-checkbox">
-                                <input type="checkbox" name="terms_agreement" data-validation="required">
+                                {{ form.share_location }}
                                 <span class="checkmark"></span>
-                                <span class="checkbox-text">أوافق على الشروط والأحكام</span>
+                                <span class="checkbox-text">السماح بالوصول إلى الموقع الجغرافي</span>
                             </label>
                         </div>
                     </div>
 
-                    <button type="button" class="auth-button submit-btn" disabled>
+                    <button type="submit" class="auth-button submit-btn">
                         إنشاء المتجر
                     </button>
                 </div>
             </div>
         </div>
+        </form>
     </div>
 
     <script src="{% static 'js/cards_animation.js' %}"></script>

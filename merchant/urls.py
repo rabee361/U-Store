@@ -29,6 +29,7 @@ themePatterns = [
     path("theme1/", views.Theme1View.as_view(), name="theme1"),
     path("theme2/", views.Theme2View.as_view(), name="theme2"),
     path("form/", views.ThemeFormView.as_view(), name="theme_form"),
+    path("info/<int:id>", views.ThemInfoView.as_view(), name="theme_info"),
 ]
 
 termsPattern = [

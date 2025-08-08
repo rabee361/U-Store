@@ -1,0 +1,131 @@
+version: '3.9'
+
+services:
+  web:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    command: >
+      sh -c "python manage.py makemigrations && python manage.py migrate && python manage.py collectstatic --no-input && daphne -b 0.0.0.0 -p 8000 Fazaa.asgi:application"
+    container_name: fazaa_web_1
+    volumes:
+      - .:/home/app
+      - static_volume:/home/app/staticfiles
+      - media_volume:/home/app/media
+    ports:
+      - 8080:8000
+    restart: always
+    env_file:
+      - ./Fazaa/.env
+    environment:
+      DJANGO_SETTINGS_MODULE: Fazaa.settings
+      DB_ENGINE: django.contrib.gis.db.backends.postgis
+      DB_HOST: db
+      DB_PORT: 5432
+      DB_PASSWORD: postgres
+      DB_USER: postgres
+      DB_NAME: postgres
+    depends_on:
+      - db
+      - redis
+    networks:
+      - fazaa_network
+    logging:
+      options:
+        max-size: 50m
+    deploy:
+      resources:
+        limits:
+          cpus: '1'
+          memory: 1G
+        reservations:
+          cpus: '0.5'
+          memory: 512M
+
+ 
+  db:
+    image: postgis/postgis:15-3.3
+    container_name: fazaa_db_1
+    env_file:
+      - ./Fazaa/.env
+    environment:
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_USER: postgres
+      POSTGRES_DB: postgres
+    restart: always
+    volumes:
+      - postgres_data:/var/lib/postgresql/data/
+    ports:
+      - 5433:5432
+    expose:
+      - "5432"
+    networks:
+        - fazaa_network
+    deploy:
+      resources:
+        limits:
+          cpus: '2'
+          memory: 2G
+        reservations:
+          cpus: '1'
+          memory: 1G
+
+  redis:
+    image: redis:latest
+    container_name: fazaa_redis_1
+    ports:
+      - "6380:6379"
+    restart: always
+    networks:
+      - fazaa_network
+    volumes:
+      - redis_data:/data
+    logging:
+      options:
+        max-size: 50m
+    deploy:
+      resources:
+        limits:
+          cpus: '0.5'
+          memory: 512M
+        reservations:
+          cpus: '0.2'
+          memory: 256M
+
+  nginx:
+    image: nginx
+    build: ./nginx
+    env_file:
+      - ./Fazaa/.env
+    ports:
+      - "9000:8080"
+    volumes:
+      - static_volume:/home/app/staticfiles
+      - media_volume:/home/app/media
+    depends_on:
+      - web
+    restart: always
+    networks:
+      - fazaa_network
+    logging:
+      options:
+        max-size: 50m
+    deploy:
+      resources:
+        limits:
+          cpus: '0.5'
+          memory: 512M
+        reservations:
+          cpus: '0.2'
+          memory: 256M
+
+
+networks:
+  fazaa_network:
+    driver: bridge
+
+volumes:
+  postgres_data:
+  media_volume:
+  static_volume:
+  redis_data:

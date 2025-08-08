@@ -1,0 +1,121 @@
+{% extends 'layout/base.html' %}
+{% load static %}
+
+{% block title %}معاينة المظهر - متجرك{% endblock %}
+
+{% block content %}
+<link rel="stylesheet" href="{% static 'css/theme-preview.css' %}">
+
+<div class="preview-container">
+    <!-- 🖥️ Desktop Preview Section -->
+    <div class="desktop-preview-section">
+        <div class="preview-header">
+            <h1 class="preview-title">🎨 معاينة المظهر</h1>
+            <p class="preview-subtitle">شاهد كيف سيبدو متجرك على الأجهزة المختلفة</p>
+        </div>
+
+        <div class="desktop-preview-wrapper">
+            <div class="desktop-frame">
+                <div class="browser-header">
+                    <div class="browser-controls">
+                        <span class="control-dot red"></span>
+                        <span class="control-dot yellow"></span>
+                        <span class="control-dot green"></span>
+                    </div>
+                    <div class="address-bar">
+                        <i class="fas fa-lock"></i>
+                        <span>yourstore.com</span>
+                    </div>
+                </div>
+                <div class="desktop-preview-content">
+                    <img src="{{ theme.image.url }}"
+                         alt="Desktop Preview"
+                         class="desktop-image">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 📱 Mobile Preview Section -->
+    <div class="mobile-preview-section">
+        <div class="mobile-header">
+            <h2 class="mobile-title">📱 معاينة الجوال</h2>
+            <p class="mobile-subtitle">تصفح بين شاشات الجوال المختلفة</p>
+        </div>
+
+        <div class="mobile-slider-container">
+            <!-- Main Mobile Preview -->
+            <div class="main-mobile-preview">
+                <div class="mobile-frame">
+                    <div class="mobile-screen">
+                        <div class="mobile-notch"></div>
+                        <img src="{{ theme.mobile1.url }}"
+                             alt="Mobile Preview"
+                             class="main-mobile-image"
+                             id="mainMobileImage">
+                    </div>
+                </div>
+            </div>
+
+            <!-- Mobile Thumbnails Slider -->
+            <div class="mobile-thumbnails-wrapper">
+                <button class="slider-nav prev-btn" id="prevBtn">
+                    <i class="fas fa-chevron-right"></i>
+                </button>
+
+                <div class="mobile-thumbnails-container">
+                    <div class="mobile-thumbnails" id="mobileThumbnails">
+                        <div class="mobile-thumbnail active" data-image="{% static 'images/placeholders/mobile.png' %}">
+                            <div class="thumbnail-frame">
+                                <img src="{{ theme.mobile1.url }}" alt="الصفحة الرئيسية">
+                            </div>
+                            <span class="thumbnail-label">الرئيسية</span>
+                        </div>
+
+                        <div class="mobile-thumbnail" data-image="{% static 'images/placeholders/empty.jpg' %}">
+                            <div class="thumbnail-frame">
+                                <img src="{{ theme.mobile2.url }}" alt="المنتجات">
+                            </div>
+                            <span class="thumbnail-label">المنتجات</span>
+                        </div>
+
+                        <div class="mobile-thumbnail" data-image="{% static 'images/placeholders/deleted_product.jpg' %}">
+                            <div class="thumbnail-frame">
+                                <img src="{{ theme.mobile3.url }}" alt="سلة التسوق">
+                            </div>
+                            <span class="thumbnail-label">السلة</span>
+                        </div>
+
+                        <div class="mobile-thumbnail" data-image="{% static 'images/placeholders/mobile.png' %}">
+                            <div class="thumbnail-frame">
+                                <img src="{{ theme.mobile4.url }}" alt="الدفع">
+                            </div>
+                            <span class="thumbnail-label">الدفع</span>
+                        </div>
+
+                        <div class="mobile-thumbnail" data-image="{% static 'images/placeholders/empty.jpg' %}">
+                            <div class="thumbnail-frame">
+                                <img src="{{ theme.mobile4.url }}" alt="الملف الشخصي">
+                            </div>
+                            <span class="thumbnail-label">الملف</span>
+                        </div>
+
+                        <div class="mobile-thumbnail" data-image="{% static 'images/placeholders/deleted_product.jpg' %}">
+                            <div class="thumbnail-frame">
+                                <img src="{{ theme.mobile4.url }}" alt="اتصل بنا">
+                            </div>
+                            <span class="thumbnail-label">اتصل بنا</span>
+                        </div>
+                    </div>
+                </div>
+
+                <button class="slider-nav next-btn" id="nextBtn">
+                    <i class="fas fa-chevron-left"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="{% static 'js/theme-preview-slider.js' %}"></script>
+{% endblock %}

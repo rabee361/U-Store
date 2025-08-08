@@ -13,6 +13,8 @@ from utils.types import UserType
 from django.contrib.auth import get_user_model
 User = get_user_model()
 import json
+from datetime import timedelta
+from django.utils import timezone
 
 
 
@@ -113,10 +115,11 @@ class ChangePasswordView(TemplateView):
 class RegisterView(View):
     def get(self, request):
         # Check if user email exists in session
-        email = request.session.get('signup_email')
-        if not email:
-            return redirect('signup')
-
+        # email = request.session.get('signup_email')
+        # if not email:
+        #     return redirect('signup')
+        
+        
         form = RegisterMerchantForm()
         return render(request, "auth/register.html", {"form": form})
 
@@ -272,11 +275,23 @@ class Theme1View(TemplateView):
 class Theme2View(TemplateView):
     template_name = "themes/theme2/main.html"
 
-class ThemesView(TemplateView):
-    template_name = "themes/main/themes.html"
+class ThemesView(View):
+    def get(self, request):
+        themes = Theme.objects.all()
+        new_themes = Theme.objects.filter(createdAt__gte=timezone.now() - timedelta(days=7))
+        free_themes = Theme.objects.filter(price=0)
+        popular_themes = Theme.objects.all()
+        context = {"themes": themes, "new_themes": new_themes, "free_themes": free_themes, "popular_themes": popular_themes}
+
+        return render(request, "themes/main/themes.html", context)
 
 class ThemeFormView(TemplateView):
     template_name = "themes/main/theme_form.html"
+
+class ThemInfoView(View):
+    def get(self, request, id):
+        theme = Theme.objects.get(id=id)
+        return render(request, "themes/main/theme_info.html", {"theme":theme})
 
 class TermsView(TemplateView):
     template_name = "config/terms/terms.html"

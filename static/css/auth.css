@@ -10,10 +10,12 @@
 
 /* Auth page layout */
 .auth-container {
-    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100svh;
     background: var(--bg-auth);
-    padding: 20px;
-    position: relative;
 }
 
 /* Navbar styling */
@@ -66,7 +68,15 @@
     text-align: center;
 }
 
-/* Form styling */
+.auth-card-container {
+    display: flex;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+}
+
+/* 
+Form styling */
 .auth-form {
     display: flex;
     flex-direction: column;
@@ -95,8 +105,9 @@
     width: 100%;
     max-width: 400px;
     height: 400px;
+    padding: 200px;
     perspective: 1000px;
-    margin-top: 100px;
+    margin-top: 50px;
 }
 
 .register-card {

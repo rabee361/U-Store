@@ -3,6 +3,7 @@
 @import "./stats.css";
 @import "./form_fields.css";
 @import "./banner.css";
+@import "./theme-preview.css";
 
 * {
     transition: color 0.8s ease, box-shadow 0.8s ease, border-color 0.8s ease, background-color 0.8s ease;

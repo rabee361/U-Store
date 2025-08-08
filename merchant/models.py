@@ -54,31 +54,51 @@ class Product(models.Model):
     isActive = models.BooleanField(default=True)
     isDeleted = models.BooleanField(default=False)
 
+class CustomerCart(models.Model):
+    merchant = models.OneToOneField(Merchant, on_delete=models.CASCADE)
+    customer = models.OneToOneField(Customer, on_delete=models.CASCADE)
+    products = models.ManyToManyField(Product, through='CustomerCartProduct')
+    quantity = models.IntegerField(default=0)
+
+class CustomerCartProduct(models.Model):
+    merchant = models.OneToOneField(Merchant, on_delete=models.CASCADE)
+    product = models.OneToOneField(Product, on_delete=models.CASCADE)
+    cart = models.OneToOneField(CustomerCart, on_delete=models.CASCADE)
+
 class Store(models.Model):
     merchant = models.OneToOneField(Merchant, on_delete=models.CASCADE)
     link = models.CharField(max_length=100)
     name = models.CharField(max_length=100)
     logo = models.ImageField(upload_to='stores/logos' , null=True, blank=True)
     banner = models.ImageField(upload_to='stores/banners' , null=True, blank=True)
+    theme = models.ForeignKey('StoreTheme', on_delete=models.SET_NULL, null=True)
 
-# class StoreDomain(models.Model):
-#     merchant = models.OneToOneField(Merchant, on_delete=models.CASCADE)
-#     domain = models.CharField(max_length=100)
-#     active = models.BooleanField(default=True)
+ 
+class Theme(models.Model):
+    image = models.ImageField(upload_to='theme/images/desktop')
+    mobile1 = models.ImageField(upload_to='theme/images/mobile')
+    mobile2 = models.ImageField(upload_to='theme/images/mobile')
+    mobile3 = models.ImageField(upload_to='theme/images/mobile')
+    mobile4 = models.ImageField(upload_to='theme/images/mobile')
+    title = models.CharField(max_length=100)
+    description = models.TextField()
+    designer = models.CharField(max_length=100)
+    createdAt = models.DateTimeField(auto_now_add=True)
+    price = models.FloatField(null=True, blank=True)
+    currecny = models.ForeignKey(Currency, null=True, blank=True, on_delete=models.SET_NULL)
+    rating = models.IntegerField(validators=[MaxValueValidator(5), MinValueValidator(1)])
 
-# class Theme(models.Model):
-#     primary = models.CharField(max_length=10)
-#     secondary = models.CharField(max_length=10)
-#     tertiary = models.CharField(max_length=10)
-#     image = models.ImageField(upload_to='theme/images')
-#     description = models.TextField()
-#     designer = models.CharField(max_length=100)
-#     createdAt = models.DateTimeField(auto_now_add=True)
-#     price = models.FloatField(null=True, blank=True)
-#     rating = models.IntegerField(validators=[MaxValueValidator(5), MinValueValidator(1)])
+class StoreTheme(models.Model):
+    theme = models.ForeignKey(Theme, on_delete=models.CASCADE)
+    cover = models.ImageField(upload_to='images/')
+    primary = models.CharField(max_length=10)
+    secondary = models.CharField(max_length=10)
+    tertiary = models.CharField(max_length=10)
 
-# class MerchantTheme(models.Model):
-#     pass
+class ThemeReview(models.Model):
+    theme = models.ForeignKey(Theme, on_delete=models.CASCADE)
+    description = models.TextField()
+    rating = models.IntegerField(default=0, validators=[MinValueValidator(0), MaxValueValidator(5)])
 
 class MerchantSocial(models.Model):
     merchant = models.ForeignKey(Merchant, on_delete=models.CASCADE)
@@ -98,7 +118,6 @@ class Warehouse(models.Model):
     selling_point = models.CharField(max_length=100)
     long = models.CharField(max_length=100)
     lat = models.CharField(max_length=100)
-
 
 class WarehouseMove(models.Model):
     merchant = models.ForeignKey(Merchant, on_delete=models.CASCADE)

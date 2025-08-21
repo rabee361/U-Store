@@ -28,3 +28,26 @@ class StoreTypes(models.TextChoices):
     MANUFACTURING = 'manufacturing'
     SERVICES = 'services'
     DIGITAL = 'digital'
+
+class PaymentMethods(models.TextChoices):
+    CASH = 'cash'
+    CREDIT_CARD = 'credit_card'
+    PAYPAL = 'paypal'
+    APPLE_PAY = 'apple_pay'
+    GOOGLE_PAY = 'google_pay'
+    BANK_TRANSFER = 'bank_transfer'
+    OTHER = 'other'
+
+class OrderStatus(models.TextChoices):
+    PENDING = 'pending'
+    COMPLETED = 'completed'
+    CANCELLED = 'cancelled'
+
+class PlanChoices(models.TextChoices):
+    ANNUAL = 'annual'
+    MONTHLY = 'monthly'
+
+class DiscountTypes(models.TextChoices):
+    PERCENT = 'percent'
+    FIXED = 'fixed'
+    FREE_SHIPPING = 'free_shipping'

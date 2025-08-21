@@ -13,19 +13,19 @@
   --background-overlay: rgba(0, 0, 0, 0.1);
   --shadow-light: rgba(0, 0, 0, 0.1);
   --shadow-medium: rgba(0, 0, 0, 0.15);
-  --card-background: #ffffff;
-  --navbar-background: #ffffff;
-  --footer-background: #1a1a1a;
+  --card-background-color: #ffffff;
+  --navbar-background-color: #ffffff;
+  --footer-background-color: #1a1a1a;
 
   /* 🌞 Light Theme Specific Colors */
-  --input-background: #ffffff;
+  --input-background-color: #ffffff;
   --input-border: #e5e5e5;
   --input-focus: #ff6b35;
-  --button-background: #f8f8f8;
+  --button-background-color: #f8f8f8;
   --button-hover: #e5e5e5;
-  --dropdown-background: #ffffff;
-  --modal-background: #ffffff;
-  --overlay-background: rgba(0, 0, 0, 0.5);
+  --dropdown-background-color: #ffffff;
+  --modal-background-color: #ffffff;
+  --overlay-background-color: rgba(0, 0, 0, 0.5);
 
   /* 🦶 Footer Theme Colors */
   --footer-text: #ffffff;
@@ -182,19 +182,19 @@ img {
   --background-overlay: rgba(255, 255, 255, 0.1);
   --shadow-light: rgba(0, 0, 0, 0.3);
   --shadow-medium: rgba(0, 0, 0, 0.4);
-  --card-background: #1e1e1e;
-  --navbar-background: #0f0f0f;
-  --footer-background: #0a0a0a;
+  --card-background-color: #1e1e1e;
+  --navbar-background-color: #0f0f0f;
+  --footer-background-color: #0a0a0a;
 
   /* 🎨 Dark Theme Specific Colors */
-  --input-background: #2a2a2a;
+  --input-background-color: #2a2a2a;
   --input-border: #3a3a3a;
   --input-focus: #ff6b35;
-  --button-background: #2a2a2a;
+  --button-background-color: #2a2a2a;
   --button-hover: #3a3a3a;
-  --dropdown-background: #1e1e1e;
-  --modal-background: #1e1e1e;
-  --overlay-background: rgba(0, 0, 0, 0.8);
+  --dropdown-background-color: #1e1e1e;
+  --modal-background-color: #1e1e1e;
+  --overlay-background-color: rgba(0, 0, 0, 0.8);
 
   /* 🦶 Footer Dark Theme Colors */
   --footer-text: #ffffff;

@@ -15,7 +15,7 @@
     justify-content: center;
     align-items: center;
     min-height: 100svh;
-    background: var(--bg-auth);
+    background-color: var(--bg-auth);
 }
 
 /* Navbar styling */
@@ -24,7 +24,7 @@
     top: 0;
     left: 0;
     right: 0;
-    background: --review-card-bg(255, 255, 255);
+    background-color: --review-card-bg(255, 255, 255);
     padding: 15px 30px;
     z-index: 1000;
 }
@@ -50,7 +50,7 @@
 
 /* Auth card - reusable component */
 .auth-card {
-    background: white;
+    background-color: white;
     border-radius: 20px;
     padding: 40px;
     box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
@@ -105,7 +105,6 @@ Form styling */
     width: 100%;
     max-width: 400px;
     height: 400px;
-    padding: 200px;
     perspective: 1000px;
     margin-top: 50px;
 }
@@ -115,7 +114,7 @@ Form styling */
     top: 0;
     left: 0;
     width: 100%;
-    background: white;
+    background-color: white;
     border-radius: 20px;
     border-top: 1px solid #e2e8f0;
     padding: 30px;
@@ -194,7 +193,7 @@ Form styling */
     border-radius: 12px;
     font-size: 16px;
     color: #1e293b;
-    background: white;
+    background-color: white;
     appearance: none;
     cursor: pointer;
     transition: all 0.3s ease;
@@ -290,7 +289,7 @@ Form styling */
 /* Input field styling */
 .auth-input {
     width: 100%;
-    padding: 10px 15px;
+    padding: 5px 15px;
     border: 2px solid #e2e8f0;
     border-radius: 12px;
     font-size: 16px;
@@ -312,7 +311,7 @@ Form styling */
     left: 12px;
     top: 50%;
     transform: translateY(-50%);
-    background: none;
+    background-color: none;
     border: none;
     cursor: pointer;
     padding: 5px;
@@ -365,8 +364,8 @@ Form styling */
 /* Button styling */
 .auth-button {
     width: 100%;
-    padding: 15px 20px;
-    background: linear-gradient(135deg, var(--primary-purple) 0%, var(--tertiary-purple) 100%);
+    padding: 5px 10px;
+    background-color: linear-gradient(135deg, var(--primary-purple) 0%, var(--tertiary-purple) 100%);
     color: white;
     border: none;
     border-radius: 12px;
@@ -389,13 +388,13 @@ Form styling */
 
 /* Secondary button */
 .auth-button-secondary {
-    background: #f1f5f9;
+    background-color: #f1f5f9;
     color: var(--primary-purple);
     border: 2px solid #e2e8f0;
 }
 
 .auth-button-secondary:hover {
-    background: #e2e8f0;
+    background-color: #e2e8f0;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
 }
 
@@ -424,15 +423,15 @@ Form styling */
     left: -100%;
     width: 100%;
     height: 100%;
-    background: linear-gradient(90deg, transparent, rgba(139, 92, 246, 0.1), transparent);
+    background-color: linear-gradient(90deg, transparent, rgba(139, 92, 246, 0.1), transparent);
     transition: left 0.5s ease;
 }
 
 /* Google Signup Button */
 .google-signup-btn {
     width: 100%;
-    padding: 15px 20px;
-    background: white;
+    padding: 5px 10px;
+    background-color: white;
     color: #1f2937;
     border: 2px solid #e5e7eb;
     border-radius: 12px;
@@ -462,7 +461,7 @@ Form styling */
 .google-icon {
     width: 20px;
     height: 20px;
-    background: linear-gradient(45deg, #ea4335 25%, #4285f4 25%, #4285f4 50%, #34a853 50%, #34a853 75%, #fbbc05 75%);
+    background-color: linear-gradient(45deg, #ea4335 25%, #4285f4 25%, #4285f4 50%, #34a853 50%, #34a853 75%, #fbbc05 75%);
     border-radius: 3px;
     flex-shrink: 0;
 }
@@ -474,7 +473,7 @@ Form styling */
     left: -100%;
     width: 100%;
     height: 100%;
-    background: linear-gradient(90deg, transparent, rgba(139, 92, 246, 0.1), transparent);
+    background-color: linear-gradient(90deg, transparent, rgba(139, 92, 246, 0.1), transparent);
     transition: left 0.5s ease;
 }
 
@@ -530,7 +529,7 @@ Form styling */
 
 /* Error Styling */
 .form-errors {
-    background: rgba(239, 68, 68, 0.1);
+    background-color: rgba(239, 68, 68, 0.1);
     border: 1px solid var(--danger-color);
     border-radius: 8px;
     padding: 10px;

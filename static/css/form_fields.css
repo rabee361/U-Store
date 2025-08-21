@@ -1,6 +1,6 @@
 /* 📝 Form Styles */
 .form-container {
-    background: var(--bg-secondary);
+    background-color: var(--bg-secondary);
     border: 1px solid var(--border-light);
     border-radius: 12px;
     padding: 2rem;
@@ -74,7 +74,7 @@
     justify-content: space-evenly;
     align-items: center;
     padding: 1rem;
-    background: var(--bg-primary);
+    background-color: var(--bg-primary);
     border: 1px solid var(--border-light);
     border-radius: 8px;
 }
@@ -186,7 +186,7 @@
     border-radius: 50%;
     background-color: var(--primary-purple);
     transform: translate(-50%, -50%) scale(0);
-    transition: transform 0.2s ease;
+    transition: transform 0.3s ease;
 }
 
 .radio-input:checked + .radio-label .radio-custom {
@@ -226,24 +226,24 @@
 }
 
 .btn-primary {
-    background: var(--primary-purple);
+    background-color: var(--primary-purple);
     color: var(--text-white);
 }
 
 .btn-primary:hover {
-    background: var(--secondary-blue);
+    background-color: var(--secondary-blue);
     transform: translateY(-1px);
     box-shadow: 0 4px 12px rgba(139, 92, 246, 0.3);
 }
 
 .btn-secondary {
-    background: var(--bg-primary);
+    background-color: var(--bg-primary);
     color: var(--text-secondary);
     border: 1px solid var(--border-light);
 }
 
 .btn-secondary:hover {
-    background: var(--border-light);
+    background-color: var(--border-light);
     color: var(--text-primary);
 }
 
@@ -318,7 +318,7 @@
     border: 2px dashed var(--border-light);
     border-radius: 12px;
     padding: 1rem;
-    background: var(--bg-primary);
+    background-color: var(--bg-primary);
     transition: border-color 0.3s ease;
 }
 
@@ -355,15 +355,14 @@
     align-items: center;
     justify-content: center;
     height: 100%;
-    background: var(--bg-secondary);
+    background-color: var(--bg-secondary);
     border-radius: 8px;
     cursor: pointer;
-    transition: background-color 0.3s ease;
     position: relative;
 }
 
 .image-placeholder:hover {
-    background: var(--hover-bg);
+    background-color: var(--hover-bg);
 }
 
 .image-placeholder i {
@@ -398,7 +397,7 @@
     height: 35px;
     border: none;
     border-radius: 50%;
-    background: var(--bg-secondary);
+    background-color: var(--bg-secondary);
     color: var(--text-primary);
     cursor: pointer;
     display: flex;
@@ -408,7 +407,7 @@
 }
 
 .image-nav-btn:hover:not(:disabled) {
-    background: var(--primary-purple);
+    background-color: var(--primary-purple);
     color: var(--text-white);
 }
 
@@ -426,13 +425,12 @@
     width: 8px;
     height: 8px;
     border-radius: 50%;
-    background: var(--border-light);
+    background-color: var(--border-light);
     cursor: pointer;
-    transition: background-color 0.3s ease;
 }
 
 .indicator.active {
-    background: var(--primary-purple);
+    background-color: var(--primary-purple);
 }
 
 /* 🏪 Warehouse Section */
@@ -444,7 +442,7 @@
 }
 
 .warehouse-item {
-    background: var(--bg-primary);
+    background-color: var(--bg-primary);
     border: 1px solid var(--border-light);
     border-radius: 8px;
     padding: 1rem;
@@ -473,7 +471,7 @@
     height: 35px;
     border: none;
     border-radius: 50%;
-    background: var(--danger-color);
+    background-color: var(--danger-color);
     color: var(--text-white);
     cursor: pointer;
     display: flex;
@@ -483,7 +481,7 @@
 }
 
 .remove-warehouse-btn:hover {
-    background: #dc2626;
+    background-color: #dc2626;
     transform: scale(1.1);
 }
 
@@ -494,7 +492,7 @@
     padding: 0.75rem 1rem;
     border: 2px dashed var(--border-light);
     border-radius: 8px;
-    background: transparent;
+    background-color: transparent;
     color: var(--text-secondary);
     cursor: pointer;
     transition: all 0.3s ease;
@@ -505,7 +503,7 @@
 .add-warehouse-btn:hover {
     border-color: var(--primary-purple);
     color: var(--primary-purple);
-    background: rgba(139, 92, 246, 0.05);
+    background-color: rgba(139, 92, 246, 0.05);
 }
 
 /* 📝 Form Help Text */
@@ -581,17 +579,17 @@
 }
 
 .notification-success {
-    background: var(--success-color);
+    background-color: var(--success-color);
     color: var(--text-white);
 }
 
 .notification-error {
-    background: var(--danger-color);
+    background-color: var(--danger-color);
     color: var(--text-white);
 }
 
 .notification-info {
-    background: var(--primary-purple);
+    background-color: var(--primary-purple);
     color: var(--text-white);
 }
 
@@ -615,7 +613,7 @@
     height: 24px;
     border: none;
     border-radius: 50%;
-    background: rgba(0, 0, 0, 0.7);
+    background-color: rgba(0, 0, 0, 0.7);
     color: white;
     cursor: pointer;
     display: flex;
@@ -626,6 +624,67 @@
 }
 
 .remove-image-btn:hover {
-    background: var(--danger-color);
+    background-color: var(--danger-color);
     transform: scale(1.1);
+}
+
+/* 📦 Plan Cards Styles */
+.plan-filters {
+    justify-content: center;
+    padding: 0;
+    margin-bottom: 2rem;
+}
+
+.plan-content {
+    width: 100%;
+}
+
+.plan-title {
+    text-align: center;
+    margin-bottom: 1rem;
+}
+
+.plan-price-container {
+    text-align: center;
+    margin-bottom: 1rem;
+}
+
+.plan-price {
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: var(--primary-purple);
+}
+
+.plan-currency {
+    color: var(--text-secondary);
+}
+
+.plan-features {
+    list-style: none;
+    padding: 0;
+    margin: 1.5rem 0;
+}
+
+.plan-feature {
+    padding: 0.5rem 0;
+    border-bottom: 1px solid var(--border-light);
+    text-align: right;
+}
+
+.plan-feature:last-child {
+    border-bottom: none;
+}
+
+.plan-feature-icon {
+    color: var(--primary-purple);
+    margin-left: 0.5rem;
+}
+
+.plan-button-container {
+    text-align: center;
+    margin-top: 1rem;
+}
+
+.plan-button {
+    width: 100%;
 }

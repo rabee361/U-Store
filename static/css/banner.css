@@ -29,7 +29,7 @@
     color: white;
     opacity: 0;
     visibility: hidden;
-    transition: all 0.5s ease-in-out;
+    transition: all 0.3s ease-in-out;
     border-radius: 8px;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
@@ -60,7 +60,7 @@
     justify-content: center;
     width: 40px;
     height: 40px;
-    background: rgba(255, 255, 255, 0.2);
+    background-color: rgba(255, 255, 255, 0.2);
     border-radius: 50%;
     flex-shrink: 0;
 }
@@ -98,18 +98,18 @@
     width: 8px;
     height: 8px;
     border-radius: 50%;
-    background: rgba(255, 255, 255, 0.4);
+    background-color: rgba(255, 255, 255, 0.4);
     cursor: pointer;
     transition: all 0.3s ease;
 }
 
 .indicator.active {
-    background: white;
+    background-color: white;
     transform: scale(1.2);
 }
 
 .indicator:hover {
-    background: rgba(255, 255, 255, 0.8);
+    background-color: rgba(255, 255, 255, 0.8);
 }
 
 /* Responsive Design */
@@ -189,9 +189,9 @@
 
 /* Dark theme support */
 [data-theme="dark"] .banner-item {
-    background: linear-gradient(135deg, var(--primary-purple) 0%, #4a5568 100%);
+    background-color: linear-gradient(135deg, var(--primary-purple) 0%, #4a5568 100%);
 }
 
 [data-theme="dark"] .banner-icon {
-    background: rgba(255, 255, 255, 0.15);
+    background-color: rgba(255, 255, 255, 0.15);
 }

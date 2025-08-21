@@ -21,7 +21,7 @@
     border: 2px solid var(--border-light);
     border-radius: 8px;
     overflow: hidden;
-    background: var(--bg-secondary);
+    background-color: var(--bg-secondary);
 }
 
 .search-input {
@@ -31,7 +31,7 @@
     outline: none;
     font-size: 0.9rem;
     color: var(--text-primary);
-    background: transparent;
+    background-color: transparent;
     text-align: right;
 }
 
@@ -41,7 +41,7 @@
 
 .search-btn {
     padding: 0.75rem 1.5rem;
-    background: var(--primary-purple);
+    background-color: var(--primary-purple);
     color: var(--text-white);
     border: none;
     cursor: pointer;
@@ -54,12 +54,12 @@
 }
 
 .search-btn:hover {
-    background: var(--secondary-blue);
+    background-color: var(--secondary-blue);
 }
 
 .filter-toggle-btn {
     padding: 0.75rem 1.5rem;
-    background: var(--bg-secondary);
+    background-color: var(--bg-secondary);
     color: var(--text-primary);
     border: 2px solid var(--border-light);
     border-radius: 8px;
@@ -84,7 +84,7 @@
 
 /* 🎛️ Filters Container */
 .filters-container {
-    background: var(--bg-secondary);
+    background-color: var(--bg-secondary);
     border: 1px solid var(--border-light);
     border-radius: 12px;
     padding: 1.5rem;
@@ -118,7 +118,7 @@
     border-radius: 6px;
     font-size: 0.85rem;
     color: var(--text-primary);
-    background: var(--bg-primary);
+    background-color: var(--bg-primary);
     text-align: right;
     cursor: pointer;
 }
@@ -152,28 +152,28 @@
 }
 
 .btn-filter-apply {
-    background: var(--primary-purple);
+    background-color: var(--primary-purple);
     color: var(--text-white);
 }
 
 .btn-filter-apply:hover {
-    background: var(--secondary-blue);
+    background-color: var(--secondary-blue);
 }
 
 .btn-filter-reset {
-    background: var(--bg-primary);
+    background-color: var(--bg-primary);
     color: var(--text-secondary);
     border: 1px solid var(--border-light);
 }
 
 .btn-filter-reset:hover {
-    background: var(--border-light);
+    background-color: var(--border-light);
     color: var(--text-primary);
 }
 
 /* 📊 Table Container */
 .table-container {
-    background: var(--bg-secondary);
+    background-color: var(--bg-secondary);
     border: 1px solid var(--border-light);
     border-radius: 12px;
     overflow: hidden;
@@ -186,7 +186,7 @@
     justify-content: space-between;
     align-items: center;
     padding: 1rem 1.5rem;
-    background: var(--bg-primary);
+    background-color: var(--bg-primary);
     border-bottom: 1px solid var(--border-light);
 }
 
@@ -215,17 +215,17 @@
 }
 
 .btn-bulk-edit {
-    background: var(--info-color);
+    background-color: var(--info-color);
     color: var(--text-white);
 }
 
 .btn-bulk-delete {
-    background: var(--danger-color);
+    background-color: var(--danger-color);
     color: var(--text-white);
 }
 
 .btn-bulk-export {
-    background: var(--success-color);
+    background-color: var(--success-color);
     color: var(--text-white);
 }
 
@@ -242,7 +242,7 @@
 }
 
 .products-table thead {
-    background: var(--bg-table-header);
+    background-color: var(--bg-table-header);
 }
 
 .products-table th,
@@ -262,7 +262,7 @@
 }
 
 .products-table tbody tr:hover {
-    background: var(--bg-primary);
+    background-color: var(--bg-primary);
 }
 
 /* 📱 Column Specific Styles */
@@ -348,7 +348,7 @@
     font-family: 'Courier New', monospace;
     font-size: 0.8rem;
     color: var(--text-secondary);
-    background: var(--bg-primary);
+    background-color: var(--bg-primary);
     padding: 0.25rem 0.5rem;
     border-radius: 4px;
 }
@@ -375,22 +375,22 @@
 }
 
 .status-active {
-    background: rgba(16, 185, 129, 0.1);
+    background-color: rgba(16, 185, 129, 0.1);
     color: var(--success-color);
 }
 
 .status-inactive {
-    background: rgba(107, 114, 128, 0.1);
+    background-color: rgba(107, 114, 128, 0.1);
     color: var(--text-muted);
 }
 
 .status-low-stock {
-    background: rgba(245, 158, 11, 0.1);
+    background-color: rgba(245, 158, 11, 0.1);
     color: var(--warning-color);
 }
 
 .status-out-of-stock {
-    background: rgba(239, 68, 68, 0.1);
+    background-color: rgba(239, 68, 68, 0.1);
     color: var(--danger-color);
 }
 
@@ -401,17 +401,17 @@
 }
 
 .dropdown-toggle {
-    background: none;
+    background-color: none;
     border: none;
     padding: 0.5rem;
     cursor: pointer;
     color: var(--text-secondary);
     border-radius: 4px;
-    transition: all 0.2s ease;
+    transition: all 0.3s ease;
 }
 
 .dropdown-toggle:hover {
-    background: var(--bg-primary);
+    background-color: var(--bg-primary);
     color: var(--text-primary);
 }
 
@@ -419,7 +419,7 @@
     position: absolute;
     top: 100%;
     left: 0;
-    background: var(--bg-secondary);
+    background-color: var(--bg-secondary);
     border: 1px solid var(--border-light);
     border-radius: 8px;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
@@ -442,11 +442,10 @@
     text-decoration: none;
     font-size: 0.85rem;
     flex-direction: row-reverse;
-    transition: background-color 0.2s ease;
 }
 
 .dropdown-item:hover {
-    background: var(--bg-primary);
+    background-color: var(--bg-primary);
 }
 
 .dropdown-item.text-danger {
@@ -455,7 +454,7 @@
 
 .dropdown-divider {
     height: 1px;
-    background: var(--border-light);
+    background-color: var(--border-light);
     margin: 0.5rem 0;
 }
 

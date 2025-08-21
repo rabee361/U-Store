@@ -1,0 +1,108 @@
+{% extends 'layout/base.html' %}
+{% load static %}
+
+{% block content %}
+    <!-- Breadcrumb Navigation -->
+    <nav class="breadcrumb">
+        <a href="#" class="breadcrumb-item">التحليلات</a>
+        <span class="breadcrumb-separator">
+            <i class="fas fa-chevron-right"></i>
+        </span>
+        <span class="breadcrumb-item active">تقارير</span>
+    </nav>
+
+    <section class="config- section">
+        <div class="section-title">
+            <h2>تقارير</h2>
+        </div>
+
+        <!-- 🎛️ Report Type Slider -->
+        <div class="reports-slider-container">
+            <div class="reports-tabs">
+                <button class="report-tab active" 
+                        data-report="products"
+                        hx-get="{% url 'products-report' %}"
+                        hx-target="#reportsContent"
+                        hx-swap="innerHTML">
+                    <i class="fas fa-box"></i>
+                     المنتجات
+                </button>
+                <button class="report-tab" 
+                        data-report="sales"
+                        hx-get="{% url 'sales-report' %}"
+                        hx-target="#reportsContent"
+                        hx-swap="innerHTML">
+                    <i class="fas fa-chart-line"></i>
+                     الطلبات
+                </button>
+                <button class="report-tab" 
+                        data-report="shipping"
+                        hx-get="{% url 'shipping-report' %}"
+                        hx-target="#reportsContent"
+                        hx-swap="innerHTML">
+                    <i class="fas fa-users"></i>
+                     الشحن
+                </button>
+                <button class="report-tab" 
+                        data-report="payment"
+                        hx-get="{% url 'payment-report' %}"
+                        hx-target="#reportsContent"
+                        hx-swap="innerHTML">
+                    <i class="fas fa-users"></i>
+                     الدفع
+                </button>
+                <button class="report-tab" 
+                        data-report="stock"
+                        hx-get="{% url 'stock-report' %}"
+                        hx-target="#reportsContent"
+                        hx-swap="innerHTML">
+                    <i class="fas fa-users"></i>
+                     المخزون
+                </button>
+                <button class="report-tab" 
+                        data-report="coupons"
+                        hx-get="{% url 'coupons-report' %}"
+                        hx-target="#reportsContent"
+                        hx-swap="innerHTML">
+                    <i class="fas fa-users"></i>
+                     قسائم التخفيضات
+                </button>
+                <button class="report-tab" 
+                        data-report="orders"
+                        hx-get="{% url 'orders-report' %}"
+                        hx-target="#reportsContent"
+                        hx-swap="innerHTML">
+                    <i class="fas fa-users"></i>
+                     الطلبات
+                </button>
+            </div>
+        </div>
+
+        <!-- ⏰ Time Period Selector -->
+        <div class="time-period-container">
+            <div class="time-period-tabs">
+                <button class="time-tab active" data-period="daily">اخر 24 ساعة</button>
+                <button class="time-tab" data-period="weekly">اخر اسبوع</button>
+                <button class="time-tab" data-period="monthly">اخر شهر</button>
+                <button class="time-tab" data-period="yearly">اخر سنة</button>
+            </div>
+        </div>
+
+        <!-- 📊 Reports Content Container -->
+        <div class="reports-content" 
+             id="reportsContent"
+             hx-get="{% url 'sales-report' %}"
+             hx-trigger="load"
+             hx-swap="innerHTML">
+            <!-- Content will be loaded here via HTMX -->
+            <div class="loading-spinner">
+                <i class="fas fa-spinner fa-spin"></i>
+                جاري تحميل التقرير...
+            </div>
+        </div>
+    </section>
+
+    <!-- Add HTMX CDN -->
+    <script src="https://unpkg.com/htmx.org@1.9.10"></script>
+    <script src="{% static 'js/reports.js' %}"></script>
+{% endblock %}

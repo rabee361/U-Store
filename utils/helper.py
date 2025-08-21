@@ -9,3 +9,6 @@ def generate_code():
     code = random.randint(1000,9999)
     return code
 
+def generate_theme_slug():
+    code = random.randint(1000,9999)
+    return code

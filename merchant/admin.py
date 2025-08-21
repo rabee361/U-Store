@@ -28,10 +28,19 @@ class ThemeAdmin(admin.ModelAdmin):
     list_display = ['id', 'title', 'designer', 'price', 'rating']
 
 
+@admin.register(Plan)
+class PlansAdmin(admin.ModelAdmin):
+    list_display = ['id', 'name']
+
+
+@admin.register(MerchantPlan)
+class MerchantPlansAdmin(admin.ModelAdmin):
+    list_display = ['id', 'plan', 'merchant']
+
+
 @admin.register(StoreTheme)
 class StoreThemeAdmin(admin.ModelAdmin):
-    list_display = ['id', 'theme', 'primary', 'secondary', 'tertiary']
-
+    list_display = ['id', 'primary', 'secondary', 'tertiary']
 
 @admin.register(Product)
 class ProductAdmin(admin.ModelAdmin):

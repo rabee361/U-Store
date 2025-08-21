@@ -1,0 +1,128 @@
+<!-- 📦 Products Report -->
+<div class="report-header">
+    <h3>تقرير المنتجات - {{ time_period|title }}</h3>
+    <div class="report-stats">
+        <div class="stat-item">
+            <span class="stat-value">{{ total_products }}</span>
+            <span class="stat-label">إجمالي المنتجات</span>
+        </div>
+        <div class="stat-item">
+            <span class="stat-value">{{ new_products }}</span>
+            <span class="stat-label">منتجات جديدة</span>
+        </div>
+        <div class="stat-item">
+            <span class="stat-value">{{ out_of_stock }}</span>
+            <span class="stat-label">نفدت من المخزون</span>
+        </div>
+    </div>
+</div>
+        <!-- Products Table -->
+        <div class="table-container">
+            <form id="productsForm" class="products-form">
+                <!-- Bulk Actions -->
+                <div class="bulk-actions" id="bulkActions" style="display: none;">
+                    <div class="selected-count">
+                        <span id="selectedCount">0</span> منتج محدد
+                    </div>
+                    <div class="bulk-buttons">
+                        <button type="button" class="btn-bulk btn-bulk-edit">
+                            <i class="fas fa-edit"></i>
+                            تعديل
+                        </button>
+                        <button type="button" class="btn-bulk btn-bulk-delete">
+                            <i class="fas fa-trash"></i>
+                            حذف
+                        </button>
+                        <button type="button" class="btn-bulk btn-bulk-export">
+                            <i class="fas fa-download"></i>
+                            تصدير
+                        </button>
+                    </div>
+                </div> 
+ 
+                <table class="products-table">
+                    <thead>
+                        <tr>
+                            <th class="checkbox-column">
+                                <input type="checkbox" id="selectAll" class="table-checkbox">
+                            </th>
+                            <th class="image-column">الصورة</th>
+                            <th class="name-column">اسم المنتج</th>
+                            <th class="code-column">رمز المنتج</th>
+                            <th class="price-column">السعر</th>
+                            <th class="stock-column">المخزون</th>
+                            <th class="status-column">الحالة</th>
+                            <th class="actions-column">الإجراءات</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for product in products %}
+                            <tr class="table-row">
+                                <td class="checkbox-column">
+                                    <input type="checkbox" name="selected_products[]" value="1" class="row-checkbox">
+                                </td>
+                                <td class="image-column">
+                                    <div class="product-image">
+                                        <img src="{% static 'images/product-placeholder.jpg' %}" alt="منتج 1" class="product-img">
+                                    </div>
+                                </td>
+                                <td class="name-column">
+                                    <div class="product-name">
+                                        <h4>هاتف ذكي سامسونج جالاكسي</h4>
+                                        <p class="product-description">هاتف ذكي بمواصفات عالية وكاميرا متطورة</p>
+                                    </div>
+                                </td>
+                                <td class="code-column">
+                                    <span class="product-code">SAMS001</span>
+                                </td>
+                                <td class="price-column">
+                                    <span class="product-price">1,299 ريال</span>
+                                </td>
+                                <td class="stock-column">
+                                    <span class="stock-count">25</span>
+                                </td>
+                                <td class="status-column">
+                                    <span class="status-badge status-active">نشط</span>
+                                </td>
+                                <td class="actions-column">
+                                    <div class="dropdown">
+                                        <button type="button" class="dropdown-toggle" data-toggle="dropdown">
+                                            <i class="fas fa-ellipsis-v"></i>
+                                        </button>
+                                        <div class="dropdown-menu">
+                                            <a href="#" class="dropdown-item">
+                                                <i class="fas fa-eye"></i>
+                                                عرض
+                                            </a>
+                                            <a href="#" class="dropdown-item">
+                                                <i class="fas fa-edit"></i>
+                                                تعديل
+                                            </a>
+                                            <a href="#" class="dropdown-item">
+                                                <i class="fas fa-copy"></i>
+                                                نسخ
+                                            </a>
+                                            <div class="dropdown-divider"></div>
+                                            <a href="#" class="dropdown-item text-danger">
+                                                <i class="fas fa-trash"></i>
+                                                حذف
+                                            </a>
+                                        </div>
+                                    </div>
+                                </td>
+                            </tr>
+                        
+                        {% empty %}
+                            <tr>
+                                <td colspan="8" class="empty-state">
+                                    <div class="empty-state-content">
+                                        <img src="{% static 'images/placeholders/empty.jpg' %}" alt="لا يوجد منتجات">
+                                        <p class="empty-state-text">لا يوجد منتجات</p>
+                                    </div>
+                                </td>
+                            </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </form>
+        </div>

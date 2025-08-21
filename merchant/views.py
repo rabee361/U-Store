@@ -1,9 +1,10 @@
-from django.shortcuts import render, redirect, get_object_or_404, reverse, HttpResponseRedirect
+from django.shortcuts import render, redirect, get_object_or_404, HttpResponseRedirect
 from django.urls import reverse
 from django.views.generic import TemplateView, ListView
 from django.views import View
 from django.contrib.auth import login, logout
 from django.contrib import messages
+from utils.views import CustomListView
 from .forms import *
 from .models import *
 from django.db import transaction
@@ -23,8 +24,8 @@ class DashboardView(TemplateView):
 
 class LoginView(View):
     def get(self, request):
-        if request.user.is_authenticated:
-            return redirect('merchant-dasboard')
+        # if request.user.is_authenticated:
+        #     return redirect('merchant-dasboard')
         form = MerchantLoginForm()
         return render(request, "auth/login.html", {"form": form})
 
@@ -44,8 +45,8 @@ class LogoutView(View):
 
 class SignUpView(View):
     def get(self, request):
-        if request.user.is_authenticated:
-            return redirect('dashboard')
+        # if request.user.is_authenticated:
+        #     return redirect('dashboard')
         form = MerchantSignUpForm()
         return render(request, "auth/signup.html", {"form": form})
 
@@ -79,7 +80,7 @@ class OtpCodeView(View):
             return redirect('verify-otp')
         return render(request, "auth/otp_code.html", {"form":form})
 
-class VerifyOtpView(TemplateView):
+class VerifyOtpView(TemplateView): 
     def get(self, request):
         # Check if user email is in session
         email = request.session.get('signup_email')
@@ -115,11 +116,9 @@ class ChangePasswordView(TemplateView):
 class RegisterView(View):
     def get(self, request):
         # Check if user email exists in session
-        # email = request.session.get('signup_email')
+        email = request.session.get('signup_email')
         # if not email:
         #     return redirect('signup')
-        
-        
         form = RegisterMerchantForm()
         return render(request, "auth/register.html", {"form": form})
 
@@ -144,6 +143,17 @@ class RegisterView(View):
 class ConfigurationView(TemplateView):
     template_name = "config/main/configuration.html"
 
+class PlansView(View):
+    def get(slf, request):
+        plans = Plan.objects.all()
+        context = {
+            'plans': plans
+        }
+        return render(request, "config/subscription/plans.html", context=context)
+
+class PlanConfigView(TemplateView):
+    template_name = "config/subscription/plans.html"
+
 class CurrencyView(TemplateView):
     template_name = "config/main/currencies.html"
 
@@ -159,7 +169,7 @@ class WarehouseFormView(TemplateView):
 class AccountView(TemplateView):
     template_name = "config/main/account.html"
 
-class ProductsView(ListView):
+class ProductsView(CustomListView):
     model = Product
     context_object_name = 'products'
     template_name = "products/products.html"
@@ -167,7 +177,7 @@ class ProductsView(ListView):
 class DeletedProductsView(View):
     def get(self, request):
         products = Product.objects.filter(isDeleted=True)
-        return render(request, "products/products.html", {"products": products})
+        return render(request, "products/deleted_products.html", {"products": products})
 
 class AddProductView(TemplateView):
     template_name = "products/product.html"
@@ -210,6 +220,29 @@ class AddCategoryView(View):
             'is_edit': False
         }
         return render(request, "products/categories/category_form.html", context)
+
+class AddProductFilterView(View):
+    def get(self, request):
+        form = ProductFilterFormView()
+        context = {
+            'form': form,
+            'is_edit': False
+        }
+        return render(request, "products/filters/filter_form.html", context)
+
+    def post(self, request):
+        form = ProductFilterFormView(data=request.POST, files=request.FILES)
+        if form.is_valid():
+            filter = form.save(commit=False)
+            filter.merchant = request.user.merchant
+            filter.save()
+            return redirect('filters')
+
+        context = {
+            'form': form,
+            'is_edit': False
+        }
+        return render(request, "products/filters/filter_form.html", context)
 
 class CategoryFormView(View):
     def get(self, request, id=None):
@@ -269,11 +302,58 @@ class CategoryActionView(View):
             ProductCategory.objects.filter(id__in=selected_ids).delete()
         return HttpResponseRedirect(reverse('categories'))
 
-class Theme1View(TemplateView):
-    template_name = "themes/theme1/main.html"
+class ProductFiltersActionView(View):
+    def post(self, request):
+        selected_ids = json.loads(request.POST.get('selected_ids', '[]'))
+        action = request.POST.get('action')
+        if action == 'delete':
+            ProductFilter.objects.filter(id__in=selected_ids).delete()
+        return HttpResponseRedirect(reverse('filters'))
 
-class Theme2View(TemplateView):
-    template_name = "themes/theme2/main.html"
+
+class ProductFiltersView(View):
+    def get(self, request):
+        filters = ProductFilter.objects.all()
+        return render(request, 'merchant/products/filters/filters.html', {'filters': filters})
+
+class ProductFilterFormView(View):
+    def get(self, request, id=None):
+        if id:
+            try:
+                filters = ProductFilter.objects.get(id=id)
+                form = ProductFilterForm(instance=filters)
+                context = {
+                    'form': form,
+                    'filters': filters,
+                    'is_edit': True
+                }
+            except ProductFilter.DoesNotExist:
+                return redirect('404')
+        else:
+            form = ProductFilterForm()
+            context = {
+                'form': form,
+                'is_edit': False
+            }
+
+        return render(request, "products/filters/filter_form.html", context)
+
+
+class Theme1View(View):
+    def get(self,request,slug):
+        try:
+            theme = get_object_or_404(Theme, slug=slug)
+            return render(request, f"themes/{slug}/main.html", {'theme':theme})
+        except Theme.DoesNotExist:
+            return redirect('404')
+
+class Theme1View(View):
+    def get(self,request,slug):
+        try:
+            theme = get_object_or_404(Theme, slug=slug)
+            return render(request, f"themes/{slug}/main.html", {'theme':theme})
+        except Theme.DoesNotExist:
+            return redirect('404')
 
 class ThemesView(View):
     def get(self, request):
@@ -296,3 +376,62 @@ class ThemInfoView(View):
 class TermsView(TemplateView):
     template_name = "config/terms/terms.html"
 
+
+class AnalyticsView(TemplateView):
+    template_name = "analytics/main.html"
+
+class ReportsView(TemplateView):
+    template_name = "analytics/reports/reports.html"
+
+class ProductReportView(TemplateView):
+    template_name = "analytics/reports/products.html"
+
+class SalesReportView(TemplateView):
+    template_name = "analytics/reports/sales.html"
+
+class CustomerReportView(TemplateView):
+    template_name = "analytics/reports/customers.html"
+
+class ShippingReportView(TemplateView):
+    template_name = "analytics/reports/shipping.html"
+
+class PaymentReportView(TemplateView):
+    template_name = "analytics/reports/payment.html"
+
+class StockReportView(TemplateView):
+    template_name = "analytics/reports/stock.html"
+
+class CouponReportView(TemplateView):
+    template_name = "analytics/reports/coupons.html"
+
+class OrderReportView(TemplateView):
+    template_name = "analytics/reports/orders.html"
+
+class OrdersView(View):
+    def get(self, request):
+        orders = Order.objects.all()
+        return render(request, "products/orders/orders.html", {"orders":orders})
+
+class AbandonedCartsView(View):
+    def get(self, request):
+        orders = Order.objects.all()
+        return render(request, "products/orders/abandoned_carts.html", {"orders":orders})
+
+class OrderView(View):
+    def get(self, request, id):
+        order = get_object_or_404(Order, id=id)
+        return render(request, "products/orders/order.html", {"order":order})
+
+class StoreWebsite(View):
+    def get(self, request, slug):
+        store = get_object_or_404(Store.objects.select_related('theme'), domain=slug)
+        theme = store.theme
+        theme_name = store.theme.theme.title
+        theme_path = f"themes/{theme_name}/main.html"
+        context = {
+            'color_test': theme.secondary,
+            'bg': theme.primary,
+            "theme":theme,
+            "theme_path":theme_path
+        }
+        return render(request, "pages/main.html", context=context)

@@ -23,12 +23,12 @@
 
 .themes-slider-container::before {
     left: 0;
-    background: linear-gradient(to right, var(--bg-secondary), transparent);
+    background-color: linear-gradient(to right, var(--bg-secondary), transparent);
 }
 
 .themes-slider-container::after {
     right: 0;
-    background: linear-gradient(to left, var(--bg-secondary), transparent);
+    background-color: linear-gradient(to left, var(--bg-secondary), transparent);
 }
 
 .themes-slider {
@@ -50,7 +50,7 @@
 
 .theme-card {
     flex: 0 0 320px;
-    background: var(--bg-secondary);
+    background-color: var(--bg-secondary);
     border: 2px solid var(--border-light);
     border-radius: 16px;
     overflow: hidden;
@@ -69,7 +69,7 @@
     position: relative;
     height: 200px;
     overflow: hidden;
-    background: var(--bg-primary);
+    background-color: var(--bg-primary);
 }
 
 .theme-image img {
@@ -87,7 +87,7 @@
     position: absolute;
     top: 12px;
     right: 12px;
-    background: linear-gradient(135deg, var(--primary-purple), var(--secondary-blue));
+    background-color: linear-gradient(135deg, var(--primary-purple), var(--secondary-blue));
     color: var(--text-white);
     padding: 0.5rem 1rem;
     border-radius: 20px;
@@ -141,26 +141,26 @@
 }
 
 .btn-theme-show {
-    background: var(--bg-primary);
+    background-color: var(--bg-primary);
     color: var(--text-primary);
     border: 2px solid var(--border-light);
 }
 
 .btn-theme-show:hover {
-    background: var(--hover-bg);
+    background-color: var(--hover-bg);
     border-color: var(--primary-purple);
     color: var(--primary-purple);
     transform: translateY(-2px);
 }
 
 .btn-theme-buy {
-    background: linear-gradient(135deg, var(--primary-purple), var(--secondary-blue));
+    background-color: linear-gradient(135deg, var(--primary-purple), var(--secondary-blue));
     color: var(--text-white);
     box-shadow: 0 2px 8px rgba(139, 92, 246, 0.3);
 }
 
 .btn-theme-buy:hover {
-    background: linear-gradient(135deg, var(--secondary-blue), var(--tertiary-purple));
+    background-color: linear-gradient(135deg, var(--secondary-blue), var(--tertiary-purple));
     transform: translateY(-2px);
     box-shadow: 0 4px 16px rgba(139, 92, 246, 0.4);
 }
@@ -223,7 +223,7 @@
 
 /* 🌙 Dark Theme Support */
 [data-theme="dark"] .theme-card {
-    background: var(--bg-secondary);
+    background-color: var(--bg-secondary);
     border-color: var(--border-light);
 }
 
@@ -233,17 +233,17 @@
 }
 
 [data-theme="dark"] .theme-overlay {
-    background: linear-gradient(135deg, var(--primary-purple), var(--secondary-blue));
+    background-color: linear-gradient(135deg, var(--primary-purple), var(--secondary-blue));
 }
 
 [data-theme="dark"] .btn-theme-show {
-    background: var(--bg-primary);
+    background-color: var(--bg-primary);
     color: var(--text-primary);
     border-color: var(--border-light);
 }
 
 [data-theme="dark"] .btn-theme-show:hover {
-    background: var(--hover-bg);
+    background-color: var(--hover-bg);
     border-color: var(--primary-purple);
     color: var(--primary-purple);
 }

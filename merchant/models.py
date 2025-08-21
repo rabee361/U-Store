@@ -2,6 +2,9 @@ from django.db import models
 from dashboard.models import *
 from accounts.models import *
 from django.core.validators import MaxValueValidator, MinValueValidator
+from utils.helper import generate_theme_slug
+from utils.types import *
+
 
 class MerchantCurrency(models.Model):
     merchant = models.ForeignKey(Merchant, on_delete=models.CASCADE)
@@ -10,15 +13,21 @@ class MerchantCurrency(models.Model):
     parts = models.FloatField()
     parts_name = models.CharField(max_length=10)
 
+class Plan(models.Model):
+    name =  models.CharField(max_length=100)
+    price =  models.FloatField()
+    currnency = models.ForeignKey(Currency, on_delete=models.CASCADE)
+    feature1 = models.CharField(max_length=100, null=True, blank=True)
+    feature2 = models.CharField(max_length=100, null=True, blank=True)
+    feature3 = models.CharField(max_length=100, null=True, blank=True)
+    feature4 = models.CharField(max_length=100, null=True, blank=True)
+    type = models.CharField(max_length=100, choices=PlanChoices, default=PlanChoices.MONTHLY)
 
-# class Plan(models.Model):
-#     pass
-#     # name = 
-#     # price = 
-#     # feature1 =
-#     # feature2 =
-#     # feature3 =
-#     # type = annual/month
+class MerchantPlan(models.Model):
+    merchant = models.ForeignKey(Merchant, on_delete=models.CASCADE)
+    plan = models.ForeignKey(Plan, on_delete=models.CASCADE)
+    createdAt = models.DateTimeField(auto_now_add=True)
+    expiresAt = models.DateTimeField()
 
 class ProductCategory(models.Model):
     merchant = models.ForeignKey(Merchant, on_delete=models.CASCADE)
@@ -31,6 +40,11 @@ class ProductCategory(models.Model):
 
 class Product(models.Model):
     merchant = models.ForeignKey(Merchant, on_delete=models.CASCADE)
+    image1 = models.ImageField(upload_to='images/merchant/products', null=True, blank=True)
+    image2 = models.ImageField(upload_to='images/merchant/products', null=True, blank=True)
+    image3 = models.ImageField(upload_to='images/merchant/products', null=True, blank=True)
+    image4 = models.ImageField(upload_to='images/merchant/products', null=True, blank=True)
+    image5 = models.ImageField(upload_to='images/merchant/products', null=True, blank=True)
     category = models.ForeignKey(ProductCategory, on_delete=models.CASCADE)
     code = models.CharField(max_length=100, null=True, blank=True)
     en_name = models.CharField(max_length=100)
@@ -54,6 +68,12 @@ class Product(models.Model):
     isActive = models.BooleanField(default=True)
     isDeleted = models.BooleanField(default=False)
 
+class ProductFilter(models.Model):
+    ar_name  = models.CharField(max_length=255)
+    en_name  = models.CharField(max_length=255)
+    ar_value  = models.CharField(max_length=255)
+    en_value  = models.CharField(max_length=255)
+
 class CustomerCart(models.Model):
     merchant = models.OneToOneField(Merchant, on_delete=models.CASCADE)
     customer = models.OneToOneField(Customer, on_delete=models.CASCADE)
@@ -69,11 +89,9 @@ class Store(models.Model):
     merchant = models.OneToOneField(Merchant, on_delete=models.CASCADE)
     link = models.CharField(max_length=100)
     name = models.CharField(max_length=100)
-    logo = models.ImageField(upload_to='stores/logos' , null=True, blank=True)
-    banner = models.ImageField(upload_to='stores/banners' , null=True, blank=True)
     theme = models.ForeignKey('StoreTheme', on_delete=models.SET_NULL, null=True)
+    domain = models.CharField(max_length=100, default="test")
 
- 
 class Theme(models.Model):
     image = models.ImageField(upload_to='theme/images/desktop')
     mobile1 = models.ImageField(upload_to='theme/images/mobile')
@@ -87,6 +105,7 @@ class Theme(models.Model):
     price = models.FloatField(null=True, blank=True)
     currecny = models.ForeignKey(Currency, null=True, blank=True, on_delete=models.SET_NULL)
     rating = models.IntegerField(validators=[MaxValueValidator(5), MinValueValidator(1)])
+    slug = models.CharField(max_length=100, unique=True, default=generate_theme_slug)
 
 class StoreTheme(models.Model):
     theme = models.ForeignKey(Theme, on_delete=models.CASCADE)
@@ -94,6 +113,8 @@ class StoreTheme(models.Model):
     primary = models.CharField(max_length=10)
     secondary = models.CharField(max_length=10)
     tertiary = models.CharField(max_length=10)
+    logo = models.ImageField(upload_to='stores/logos' , null=True, blank=True)
+    banner = models.ImageField(upload_to='stores/banners' , null=True, blank=True)
 
 class ThemeReview(models.Model):
     theme = models.ForeignKey(Theme, on_delete=models.CASCADE)
@@ -126,3 +147,21 @@ class WarehouseMove(models.Model):
     to_warehouse = models.ForeignKey(Warehouse, on_delete=models.CASCADE, related_name='to_warehouse')
     status = models.CharField(max_length=100)
     date = models.DateTimeField(auto_now_add=True)
+
+class Order(models.Model):
+    merchant = models.ForeignKey(Merchant, on_delete=models.CASCADE)
+    customer = models.ForeignKey(Customer, on_delete=models.CASCADE)
+    shipping = models.CharField(max_length=100)
+    payment = models.CharField(max_length=100, choices=PaymentMethods.choices)
+    total = models.FloatField()
+    status = models.CharField(max_length=100, choices=OrderStatus.choices)
+    createdAt = models.DateTimeField(auto_now_add=True)
+    updatedAt = models.DateTimeField(auto_now=True)
+
+class AutoDiscount(models.Model):
+    discount_type = models.CharField(max_length=100, choices=DiscountTypes.choices)
+    percent = models.IntegerField(validators=[MinValueValidator(0), MaxValueValidator(100)])
+    condition = models.CharField(max_length=100, choices=DiscountTypes.choices)
+    from_date = models.DateTimeField()
+    to_date = models.DateTimeField()
+    limit = models.IntegerField(validators=[MinValueValidator(0)])

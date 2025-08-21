@@ -14,22 +14,48 @@ authPatterns = [
 
 storePatterns = [
     path("", views.ProductsView.as_view(), name="products"),
-    path("action/", views.ProductActionView.as_view(), name="products-action"),
+    path("deleted/", views.DeletedProductsView.as_view(), name="deleted-products"),
+    path("filters/", views.ProductFiltersView.as_view(), name="product-filters"),
+    path("filters/add", views.AddProductFilterView.as_view(), name="add-filter"),
+    path("filters/action", views.ProductFiltersActionView.as_view(), name="filter-action"),
+    # path("filters/<int:id>/delete", views.DeleteProductFiltersView.as_view(), name="delete-filter"),
+    path("filters/<int:id>", views.ProductFilterFormView.as_view(), name="filter"),
+    path("action/", views.ProductActionView.as_view(), name="products-ation"),
     path("<int:id>/", views.ProductFormView.as_view(), name="product"),
     path("add/", views.AddProductView.as_view(), name="add-product"),
-    path("deleted/", views.DeletedProductsView.as_view(), name="deleted-products"),
     path("categories/", views.CategoryView.as_view(), name="categories"),
     path("categories/<int:id>", views.CategoryFormView.as_view(), name="category"),
     path("categories/add", views.AddCategoryView.as_view(), name="add-category"),
     path("categories/action", views.CategoryActionView.as_view(), name="category-action"),
+
+    path("store/<slug:slug>", views.StoreWebsite.as_view(), name="store-website"),
 ]
 
 themePatterns = [
     path("", views.ThemesView.as_view(), name="themes"),
-    path("theme1/", views.Theme1View.as_view(), name="theme1"),
-    path("theme2/", views.Theme2View.as_view(), name="theme2"),
+    path("<slug:slug>", views.Theme1View.as_view(), name="theme"),
+    path("store/<slug:slug>", views.Theme1View.as_view(), name="store"),
     path("form/", views.ThemeFormView.as_view(), name="theme_form"),
-    path("info/<int:id>", views.ThemInfoView.as_view(), name="theme_info"),
+    path("info/<int:id>", views.ThemInfoView.as_view(), name="theme-info"),
+]
+
+orderPatterns = [
+    path("", views.OrdersView.as_view(), name="orders"),
+    path("carts/abandoned", views.AbandonedCartsView.as_view(), name="abandoned-carts"),
+    path("<int:id>", views.OrderView.as_view(), name="order"),
+]
+
+analyticsPatterns = [
+    path("", views.AnalyticsView.as_view(), name="analytics"),
+    path("reports/", views.ReportsView.as_view(), name="reports"),
+    path("reports/sales", views.SalesReportView.as_view(), name="sales-report"),
+    path("reports/products", views.ProductReportView.as_view(), name="products-report"),
+    path("reports/customers", views.CustomerReportView.as_view(), name="customers-report"),
+    path("reports/stock", views.StockReportView.as_view(), name="stock-report"),
+    path("reports/orders", views.OrderReportView.as_view(), name="orders-report"),
+    path("reports/coupons", views.CouponReportView.as_view(), name="coupons-report"),
+    path("reports/payment", views.PaymentReportView.as_view(), name="payment-report"),
+    path("reports/shipping", views.ShippingReportView.as_view(), name="shipping-report"),
 ]
 
 termsPattern = [
@@ -38,6 +64,8 @@ termsPattern = [
 
 configPattern = [
     path("", views.ConfigurationView.as_view(), name="configuration"),
+    path("plans", views.PlansView.as_view(), name="plans"),
+    path("plans/config", views.PlanConfigView.as_view(), name="plan-config"),
     path("account/", views.AccountView.as_view(), name="account-setting"),
     path("currencies/", views.CurrencyView.as_view(), name="currencies"),
     path("warehouses/", views.WarehousesView.as_view(), name="warehouses"),
@@ -50,6 +78,8 @@ urlpatterns = [
     path("dashboard/", views.DashboardView.as_view(), name="merchant-dasboard"),
     path("auth/", include(authPatterns)),
     path("theme/", include(themePatterns)),
+    path("orders/", include(orderPatterns)),
+    path("analytics/", include(analyticsPatterns)),
     path("config/", include(configPattern)),
     path("products/", include(storePatterns)),
 ]

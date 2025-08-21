@@ -165,7 +165,6 @@
   font-size: var(--font-size-base);
   font-weight: var(--font-weight-semibold);
   cursor: pointer;
-  transition: background-color var(--transition-fast);
   white-space: nowrap;
 }
 

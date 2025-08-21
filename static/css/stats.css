@@ -1,6 +1,6 @@
 /* 🎯 Dashboard Cover Page */
 .dashboard-cover {
-    background: linear-gradient(135deg, var(--bg-secondary) 0%, var(--bg-primary) 100%);
+    background-color: linear-gradient(135deg, var(--bg-secondary) 0%, var(--bg-primary) 100%);
     border: 1px solid var(--border-light);
     border-radius: 16px;
     padding: 2.5rem;
@@ -63,7 +63,7 @@
 }
 
 .stat-card {
-    background: var(--bg-primary);
+    background-color: var(--bg-primary);
     border: 1px solid var(--border-light);
     border-radius: 12px;
     padding: 1.5rem;

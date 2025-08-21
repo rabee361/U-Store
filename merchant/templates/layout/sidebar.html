@@ -1,7 +1,7 @@
 {% load static %}
+{% load i18n %}
 
 <aside class="sidebar">
-
     <nav class="sidebar-nav">
         <div class="nav-section">
 
@@ -9,7 +9,7 @@
                 <a href="{% url 'merchant-dasboard' %}">
                     <div class="nav-header">
                         <div class="icon-text-group">
-                            <span>الرئيسية</span>
+                            <span>{% trans "main" %}</span>
                             <i class="fas fa-home"></i>
                         </div>
                     </div>
@@ -25,8 +25,8 @@
                     <i class="fas fa-chevron-down arrow"></i>
                 </div>
                 <div class="nav-content">
-                    <a href="{% url 'themes' %}" class="sub-item">الطلبات اليدوية</a>
-                    <a href="#" class="sub-item">السلات المتروكة</a>
+                    <a href="{% url 'orders' %}" class="sub-item">الطلبات اليدوية</a>
+                    <a href="{% url 'abandoned-carts' %}" class="sub-item">السلات المتروكة</a>
                 </div>
             </div>
 
@@ -41,6 +41,9 @@
                 <div class="nav-content">
                     <a href="{% url 'products' %}" class="sub-item">المنتجات</a>
                     <a href="#" class="sub-item">مكتبة الخيارات</a>
+                    <a href="{% url 'categories' %}" class="sub-item">تصنيفات منتج</a>
+                    <a href="{% url 'product-filters' %}" class="sub-item"></a>
+                    <a href="{% url 'deleted-products' %}" class="sub-item">سلة المحذوفات</a>
                 </div>
             </div>
 
@@ -48,9 +51,17 @@
                 <div class="nav-header">
                     <div class="icon-text-group">
                         <span>التسويق</span>
-                        <i class="fas fa-tags"></i>
+                        <i class="fas fa-box"></i>
                     </div>
                     <i class="fas fa-chevron-down arrow"></i>
+                </div>
+                <div class="nav-content">
+                    <a href="#" class="sub-item">قسائم التخفيض</a>
+                    <a href="#" class="sub-item">العروض</a>
+                    <a href="#" class="sub-item">الخصومات</a>
+                    <a href="#" class="sub-item">الخصومات التلقائية</a>
+                    <a href="#" class="sub-item">الحملات التسويقية</a>
+                    <a href="#" class="sub-item">الحزم التسويقية</a>
                 </div>
             </div>
 
@@ -63,8 +74,8 @@
                     <i class="fas fa-chevron-down arrow"></i>
                 </div>
                 <div class="nav-content">
-                    <a href="{% url 'themes' %}" class="sub-item">التحليلات</a>
-                    <a href="#" class="sub-item">تقارير</a>
+                    <a href="{% url 'analytics' %}" class="sub-item">التحليلات</a>
+                    <a href="{% url 'reports' %}" class="sub-item">تقارير</a>
                 </div>
             </div>
 

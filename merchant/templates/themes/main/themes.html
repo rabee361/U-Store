@@ -28,7 +28,7 @@
                             <img src="{{ theme.image.url }}" alt="{{ theme.title }}">
                             <div class="theme-overlay">
                                 <span class="theme-price">{{ theme.price }} ر.س</span>
-                            </div>
+                            </div>+
                         </div>
                         <div class="theme-content">
                             <h3 class="theme-title">{{ theme.title }}</h3>
@@ -42,6 +42,18 @@
                                     <i class="fas fa-shopping-cart"></i>
                                     شراء
                                 </a>
+                            </div>
+                        </div>
+                    </div>
+                {% empty %}
+                    <div class="col-lg-4 col-md-6 col-sm-12">
+                        <div class="theme-item">
+                            <div class="theme-item-img">
+                                <img src="{% static 'img/theme-1.png' %}" alt="">
+                            </div>
+                            <div class="theme-item-info">
+                                <h3 class="theme-item-title"></h3>
+                            </div>
                             </div>
                         </div>
                     </div>
@@ -81,6 +93,18 @@
                             </div>
                         </div>
                     </div>
+                {% empty %}
+                    <div class="col-lg-4 col-md-6 col-sm-12">
+                        <div class="theme-item">
+                            <div class="theme-item-img">
+                                <img src="{% static 'img/theme-1.png' %}" alt="">
+                            </div>
+                            <div class="theme-item-info">
+                                <h3 class="theme-item-title"></h3>
+                            </div>
+                            </div>
+                        </div>
+                    </div>
                 {% endfor %}
             </div>
         </div>
@@ -117,6 +141,18 @@
                             </div>
                         </div>
                     </div>
+                {% empty %}
+                    <div class="col-lg-4 col-md-6 col-sm-12">
+                        <div class="theme-item">
+                            <div class="theme-item-img">
+                                <img src="{% static 'img/theme-1.png' %}" alt="">
+                            </div>
+                            <div class="theme-item-info">
+                                <h3 class="theme-item-title"></h3>
+                            </div>
+                            </div>
+                        </div>
+                    </div>
                 {% endfor %}
             </div>
         </div>
@@ -150,6 +186,18 @@
                                     <i class="fas fa-shopping-cart"></i>
                                     شراء
                                 </button>
+                            </div>
+                        </div>
+                    </div>
+                {% empty %}
+                    <div class="col-lg-4 col-md-6 col-sm-12">
+                        <div class="theme-item">
+                            <div class="theme-item-img">
+                                <img src="{% static 'img/theme-1.png' %}" alt="">
+                            </div>
+                            <div class="theme-item-info">
+                                <h3 class="theme-item-title"></h3>
+                            </div>
                             </div>
                         </div>
                     </div>

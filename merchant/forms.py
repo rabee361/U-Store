@@ -298,3 +298,45 @@ class CategoryForm(forms.ModelForm):
         if commit:
             instance.save()
         return instance
+
+
+
+
+
+class ProductFilterForm(forms.ModelForm):
+    class Meta:
+        model = ProductFilter
+        fields = ['ar_name', 'en_name', 'ar_value', 'en_value']
+        widgets = {
+            'ar_name': forms.TextInput(attrs={
+                'class': 'form-input',
+                'placeholder': 'أدخل اسم الفئة بالعربية',
+                'required': True
+            }),
+            'en_name': forms.TextInput(attrs={
+                'class': 'form-input',
+                'placeholder': 'Enter category name in English',
+                'required': True
+            }),
+            'ar_value': forms.Textarea(attrs={
+                'class': 'form-textarea',
+                'placeholder': 'أدخل وصف الفئة بالعربية',
+                'rows': 4
+            }),
+            'en_value': forms.Textarea(attrs={
+                'class': 'form-textarea',
+                'placeholder': 'Enter category description in English',
+                'rows': 4
+            }),
+        }
+        error_messages = {
+            'ar_name': {
+                'required': 'اسم الفئة بالعربية مطلوب',
+                'max_length': 'اسم الفئة لا يجب أن يتجاوز 100 حرف'
+            },
+            'en_name': {
+                'required': 'اسم الفئة بالإنجليزية مطلوب',
+                'max_length': 'اسم الفئة لا يجب أن يتجاوز 100 حرف'
+            },
+        }
+

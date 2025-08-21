@@ -4,7 +4,7 @@
     max-width: 1400px;
     margin: 0 auto;
     padding: 2rem;
-    background: var(--bg-primary);
+    background-color: var(--bg-primary);
     min-height: 100vh;
 }
 
@@ -23,7 +23,7 @@
     font-weight: 700;
     color: var(--primary-purple);
     margin-bottom: 0.5rem;
-    background: linear-gradient(135deg, var(--primary-purple), var(--secondary-blue));
+    background-color: linear-gradient(135deg, var(--primary-purple), var(--secondary-blue));
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
@@ -40,7 +40,7 @@
     justify-content: center;
     align-items: center;
     padding: 2rem;
-    background: var(--bg-secondary);
+    background-color: var(--bg-secondary);
     border-radius: 20px;
     box-shadow: 0 10px 40px rgba(139, 92, 246, 0.1);
     border: 1px solid var(--border-light);
@@ -49,7 +49,7 @@
 .desktop-frame {
     width: 100%;
     max-width: 900px;
-    background: #f5f5f5;
+    background-color: #f5f5f5;
     border-radius: 12px;
     overflow: hidden;
     box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15);
@@ -65,7 +65,7 @@
     align-items: center;
     justify-content: space-between;
     padding: 12px 16px;
-    background: #e0e0e0;
+    background-color: #e0e0e0;
     border-bottom: 1px solid #d0d0d0;
 }
 
@@ -81,22 +81,22 @@
 }
 
 .control-dot.red {
-    background: #ff5f57;
+    background-color: #ff5f57;
 }
 
 .control-dot.yellow {
-    background: #ffbd2e;
+    background-color: #ffbd2e;
 }
 
 .control-dot.green {
-    background: #28ca42;
+    background-color: #28ca42;
 }
 
 .address-bar {
     display: flex;
     align-items: center;
     gap: 8px;
-    background: white;
+    background-color: white;
     padding: 6px 12px;
     border-radius: 6px;
     font-size: 0.9rem;
@@ -127,7 +127,7 @@
 
 /* 📱 Mobile Preview Section */
 .mobile-preview-section {
-    background: var(--bg-secondary);
+    background-color: var(--bg-secondary);
     border-radius: 20px;
     padding: 3rem 2rem;
     box-shadow: 0 10px 40px rgba(139, 92, 246, 0.1);
@@ -169,7 +169,7 @@
     position: relative;
     width: 280px;
     height: 560px;
-    background: #1a1a1a;
+    background-color: #1a1a1a;
     border-radius: 35px;
     padding: 8px;
     box-shadow: 0 15px 50px rgba(0, 0, 0, 0.3);
@@ -183,7 +183,7 @@
 .mobile-screen {
     width: 100%;
     height: 100%;
-    background: white;
+    background-color: white;
     border-radius: 27px;
     overflow: hidden;
     position: relative;
@@ -196,7 +196,7 @@
     transform: translateX(-50%);
     width: 120px;
     height: 25px;
-    background: #1a1a1a;
+    background-color: #1a1a1a;
     border-radius: 0 0 15px 15px;
     z-index: 2;
 }
@@ -205,7 +205,7 @@
     width: 100%;
     height: 100%;
     object-fit: cover;
-    transition: opacity 0.4s ease;
+    transition: opacity 0.3s ease;
 }
 
 /* Mobile Thumbnails */
@@ -218,7 +218,7 @@
 }
 
 .slider-nav {
-    background: var(--primary-purple);
+    background-color: var(--primary-purple);
     color: white;
     border: none;
     width: 45px;
@@ -234,7 +234,7 @@
 }
 
 .slider-nav:hover {
-    background: var(--secondary-blue);
+    background-color: var(--secondary-blue);
     transform: scale(1.1);
     box-shadow: 0 6px 20px rgba(139, 92, 246, 0.4);
 }
@@ -253,7 +253,7 @@
     display: flex;
     gap: 1.5rem;
     padding: 1rem;
-    transition: transform 0.4s ease;
+    transition: transform 0.3s ease;
     align-items: center;
 }
 
@@ -279,7 +279,7 @@
 .thumbnail-frame {
     width: 80px;
     height: 160px;
-    background: #1a1a1a;
+    background-color: #1a1a1a;
     border-radius: 15px;
     padding: 3px;
     margin-bottom: 0.5rem;
@@ -289,7 +289,7 @@
 
 .mobile-thumbnail.active .thumbnail-frame {
     box-shadow: 0 8px 25px rgba(139, 92, 246, 0.4);
-    background: var(--primary-purple);
+    background-color: var(--primary-purple);
 }
 
 .thumbnail-frame img {

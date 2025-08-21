@@ -91,11 +91,10 @@
   justify-content: center;
   width: 40px;
   height: 40px;
-  background: none;
+  background-color: none;
   border: none;
   cursor: pointer;
   border-radius: var(--border-radius-md);
-  transition: background-color var(--transition-fast);
 }
 
 .navbar-action-btn:hover {
@@ -138,11 +137,10 @@
   justify-content: center;
   width: 40px;
   height: 40px;
-  background: none;
+  background-color: none;
   border: none;
   cursor: pointer;
   border-radius: var(--border-radius-md);
-  transition: background-color var(--transition-fast);
 }
 
 .navbar-toggle:hover {
@@ -269,18 +267,6 @@
   transform: translateY(0);
   opacity: 1;
   visibility: visible;
-}
-
-.search-input {
-  width: 100%;
-  padding: var(--spacing-md);
-  font-size: var(--font-size-lg);
-  border: 2px solid var(--border-light);
-  border-radius: var(--border-radius-md);
-  background-color: var(--card-background);
-  color: var(--text-primary);
-  outline: none;
-  transition: border-color var(--transition-fast);
 }
 
 .search-input:focus {

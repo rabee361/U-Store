@@ -409,14 +409,6 @@ class Theme1View(View):
         except Theme.DoesNotExist:
             return redirect('404')
 
-class Theme1View(View):
-    def get(self,request,slug):
-        try:
-            theme = get_object_or_404(Theme, slug=slug)
-            return render(request, f"themes/{slug}/main.html", {'theme':theme})
-        except Theme.DoesNotExist:
-            return redirect('404')
-
 class ThemesView(View):
     def get(self, request):
         themes = Theme.objects.all()

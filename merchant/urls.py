@@ -43,7 +43,7 @@ storePatterns = [
 themePatterns = [
     path("", views.ThemesView.as_view(), name="themes"),
     path("<slug:slug>", views.Theme1View.as_view(), name="theme"),
-    path("store/<slug:slug>", views.Theme1View.as_view(), name="store"),
+    # path("store/<slug:slug>", views.Theme1View.as_view(), name="store"),
     path("form/", views.ThemeFormView.as_view(), name="theme_form"),
     path("info/<int:id>", views.ThemInfoView.as_view(), name="theme-info"),
 ]

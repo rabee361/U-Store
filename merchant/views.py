@@ -221,29 +221,6 @@ class AddCategoryView(View):
         }
         return render(request, "products/categories/category_form.html", context)
 
-class AddProductFilterView(View):
-    def get(self, request):
-        form = ProductFilterFormView()
-        context = {
-            'form': form,
-            'is_edit': False
-        }
-        return render(request, "products/filters/filter_form.html", context)
-
-    def post(self, request):
-        form = ProductFilterFormView(data=request.POST, files=request.FILES)
-        if form.is_valid():
-            filter = form.save(commit=False)
-            filter.merchant = request.user.merchant
-            filter.save()
-            return redirect('filters')
-
-        context = {
-            'form': form,
-            'is_edit': False
-        }
-        return render(request, "products/filters/filter_form.html", context)
-
 class CategoryFormView(View):
     def get(self, request, id=None):
         if id:
@@ -293,7 +270,6 @@ class CategoryFormView(View):
         }
         return render(request, "products/categories/category_form.html", context)
 
-
 class CategoryActionView(View):
     def post(self, request):
         selected_ids = json.loads(request.POST.get('selected_ids', '[]'))
@@ -301,6 +277,10 @@ class CategoryActionView(View):
         if action == 'delete':
             ProductCategory.objects.filter(id__in=selected_ids).delete()
         return HttpResponseRedirect(reverse('categories'))
+
+
+
+
 
 class ProductFiltersActionView(View):
     def post(self, request):
@@ -310,11 +290,33 @@ class ProductFiltersActionView(View):
             ProductFilter.objects.filter(id__in=selected_ids).delete()
         return HttpResponseRedirect(reverse('filters'))
 
+class AddProductFilterView(View):
+    def get(self, request):
+        form = ProductFilterForm()
+        context = {
+            'form': form,
+            'is_edit': False
+        }
+        return render(request, "products/filters/filter_form.html", context)
+
+    def post(self, request):
+        form = ProductFilterForm(data=request.POST, files=request.FILES)
+        if form.is_valid():
+            filter = form.save(commit=False)
+            filter.merchant = request.user.merchant
+            filter.save()
+            return redirect('filters')
+
+        context = {
+            'form': form,
+            'is_edit': False
+        }
+        return render(request, "products/filters/filter_form.html", context)
 
 class ProductFiltersView(View):
     def get(self, request):
         filters = ProductFilter.objects.all()
-        return render(request, 'merchant/products/filters/filters.html', {'filters': filters})
+        return render(request, 'products/filters/filters.html', {'filters': filters})
 
 class ProductFilterFormView(View):
     def get(self, request, id=None):
@@ -337,6 +339,66 @@ class ProductFilterFormView(View):
             }
 
         return render(request, "products/filters/filter_form.html", context)
+
+
+
+
+class ProductOptionsActionView(View):
+    def post(self, request):
+        selected_ids = json.loads(request.POST.get('selected_ids', '[]'))
+        action = request.POST.get('action')
+        if action == 'delete':
+            ProductOption.objects.filter(id__in=selected_ids).delete()
+        return HttpResponseRedirect(reverse('options'))
+
+class ProductOptionsView(View):
+    def get(self, request):
+        options = ProductOption.objects.all()
+        return render(request, 'products/options/options.html', {'options': options})
+
+class AddProductOptionView(View):
+    def get(self, request, id=None):
+        if id:
+            try:
+                options = ProductOption.objects.get(id=id)
+                form = ProductOptionform(instance=options)
+                context = {
+                    'form': form,
+                    'options': options,
+                    'is_edit': True
+                }
+            except ProductOption.DoesNotExist:
+                return redirect('404')
+        else:
+            form = ProductOptionform()
+            context = {
+                'form': form,
+                'is_edit': False
+            }
+
+        return render(request, "products/options/option_form.html", context)
+
+class ProductOptionFormView(View):
+    def get(self, request, id=None):
+        if id:
+            try:
+                options = ProductOption.objects.get(id=id)
+                form = ProductOptionform(instance=options)
+                context = {
+                    'form': form,
+                    'options': options,
+                    'is_edit': True
+                }
+            except ProductOption.DoesNotExist:
+                return redirect('404')
+        else:
+            form = ProductOptionform()
+            context = {
+                'form': form,
+                'is_edit': False
+            }
+
+        return render(request, "products/options/option_form.html", context)
 
 
 class Theme1View(View):

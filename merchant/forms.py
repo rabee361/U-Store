@@ -310,33 +310,73 @@ class ProductFilterForm(forms.ModelForm):
         widgets = {
             'ar_name': forms.TextInput(attrs={
                 'class': 'form-input',
-                'placeholder': 'أدخل اسم الفئة بالعربية',
+                'placeholder': 'أدخل اسم التصنيف بالعربية',
                 'required': True
             }),
             'en_name': forms.TextInput(attrs={
                 'class': 'form-input',
-                'placeholder': 'Enter category name in English',
+                'placeholder': 'Enter filter name in English',
                 'required': True
             }),
             'ar_value': forms.Textarea(attrs={
                 'class': 'form-textarea',
-                'placeholder': 'أدخل وصف الفئة بالعربية',
+                'placeholder': 'أدخل وصف التصنيف بالعربية',
                 'rows': 4
             }),
             'en_value': forms.Textarea(attrs={
                 'class': 'form-textarea',
-                'placeholder': 'Enter category description in English',
+                'placeholder': 'Enter filter description in English',
                 'rows': 4
             }),
         }
         error_messages = {
             'ar_name': {
-                'required': 'اسم الفئة بالعربية مطلوب',
-                'max_length': 'اسم الفئة لا يجب أن يتجاوز 100 حرف'
+                'required': 'اسم التصنيف بالعربية مطلوب',
+                'max_length': 'اسم التصنيف لا يجب أن يتجاوز 100 حرف'
             },
             'en_name': {
-                'required': 'اسم الفئة بالإنجليزية مطلوب',
-                'max_length': 'اسم الفئة لا يجب أن يتجاوز 100 حرف'
+                'required': 'اسم التصنيف بالإنجليزية مطلوب',
+                'max_length': 'اسم التصنيف لا يجب أن يتجاوز 100 حرف'
+            },
+        }
+
+
+
+
+class ProductOptionform(forms.ModelForm):
+    class Meta:
+        model = ProductOption
+        fields = ['ar_name', 'en_name', 'ar_value', 'en_value']
+        widgets = {
+            'ar_name': forms.TextInput(attrs={
+                'class': 'form-input',
+                'placeholder': 'أدخل اسم الخيار بالعربية',
+                'required': True
+            }),
+            'en_name': forms.TextInput(attrs={
+                'class': 'form-input',
+                'placeholder': 'Enter option name in English',
+                'required': True
+            }),
+            'ar_value': forms.Textarea(attrs={
+                'class': 'form-textarea',
+                'placeholder': 'أدخل وصف الخيار بالعربية',
+                'rows': 4
+            }),
+            'en_value': forms.Textarea(attrs={
+                'class': 'form-textarea',
+                'placeholder': 'Enter option description in English',
+                'rows': 4
+            }),
+        }
+        error_messages = {
+            'ar_name': {
+                'required': 'اسم الخيار بالعربية مطلوب',
+                'max_length': 'اسم الخيار لا يجب أن يتجاوز 100 حرف'
+            },
+            'en_name': {
+                'required': 'اسم الخيار بالإنجليزية مطلوب',
+                'max_length': 'اسم الخيار لا يجب أن يتجاوز 100 حرف'
             },
         }
 

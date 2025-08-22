@@ -353,9 +353,9 @@
         <span class="breadcrumb-separator"><i class="fas fa-chevron-right"></i></span>
         <a href="{% url 'products' %}" class="breadcrumb-item">المنتجات</a>
         <span class="breadcrumb-separator"><i class="fas fa-chevron-right"></i></span>
-        <a href="{% url 'product-filters' %}" class="breadcrumb-item">معايير التصفية</a>
+        <a href="{% url 'product-options' %}" class="breadcrumb-item">مكتبة الخيارات</a>
         <span class="breadcrumb-separator"><i class="fas fa-chevron-right"></i></span>
-        <span class="breadcrumb-item active">{% if is_edit %}تعديل معيار{% else %}إضافة معيار جديد{% endif %}</span>
+        <span class="breadcrumb-item active">{% if is_edit %}تعديل خيار{% else %}إضافة خيار جديد{% endif %}</span>
     </nav>
 
     <div class="form-container">
@@ -373,7 +373,7 @@
 
                 <div class="form-row">
                     <div class="form-group">
-                        <label class="form-label" for="{{ form.ar_name.id_for_label }}">اسم التصنيف بالعربية</label>
+                        <label class="form-label" for="{{ form.ar_name.id_for_label }}">اسم الخيار بالعربية</label>
                         {{ form.ar_name }}
                         {% if form.ar_name.errors %}
                             <div class="field-errors">
@@ -384,7 +384,7 @@
                         {% endif %}
                     </div>
                     <div class="form-group">
-                        <label class="form-label" for="{{ form.en_name.id_for_label }}">اسم التصنيف بالإنجليزية</label>
+                        <label class="form-label" for="{{ form.en_name.id_for_label }}">اسم الخيار بالإنجليزية</label>
                         {{ form.en_name }}
                         {% if form.en_name.errors %}
                             <div class="field-errors">
@@ -398,7 +398,7 @@
 
                 <div class="form-row">
                     <div class="form-group">
-                        <label class="form-label" for="{{ form.ar_value.id_for_label }}">قيمة التصنيف بالعربية</label>
+                        <label class="form-label" for="{{ form.ar_value.id_for_label }}">قيمة الخيار بالعربية</label>
                         {{ form.ar_value }}
                         {% if form.ar_value.errors %}
                             <div class="field-errors">
@@ -409,7 +409,7 @@
                         {% endif %}
                     </div>
                     <div class="form-group">
-                        <label class="form-label" for="{{ form.en_value.id_for_label }}">قيمة التصنيف بالإنجليزية</label>
+                        <label class="form-label" for="{{ form.en_value.id_for_label }}">قيمة الخيار بالإنجليزية</label>
                         {{ form.en_value }}
                         {% if form.en_value.errors %}
                             <div class="field-errors">
@@ -424,9 +424,9 @@
                 <div class="form-actions">
                     <button type="submit" class="btn-primary">
                         <i class="fas fa-save"></i>
-                        {% if is_edit %}تحديث التصنيف{% else %}حفظ التصنيف{% endif %}
+                        {% if is_edit %}تحديث {% else %}حفظ {% endif %}
                     </button>
-                    <a href="{% url 'product-filters' %}" class="btn-secondary">
+                    <a href="{% url 'product-options' %}" class="btn-secondary">
                         <i class="fas fa-times"></i>
                         إلغاء
                     </a>

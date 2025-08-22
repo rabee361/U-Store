@@ -74,6 +74,12 @@ class ProductFilter(models.Model):
     ar_value  = models.CharField(max_length=255)
     en_value  = models.CharField(max_length=255)
 
+class ProductOption(models.Model):
+    ar_name  = models.CharField(max_length=255)
+    en_name  = models.CharField(max_length=255)
+    ar_value  = models.CharField(max_length=255)
+    en_value  = models.CharField(max_length=255)
+
 class CustomerCart(models.Model):
     merchant = models.OneToOneField(Merchant, on_delete=models.CASCADE)
     customer = models.OneToOneField(Customer, on_delete=models.CASCADE)

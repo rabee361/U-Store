@@ -14,16 +14,25 @@ authPatterns = [
 
 storePatterns = [
     path("", views.ProductsView.as_view(), name="products"),
+    path("add/", views.AddProductView.as_view(), name="add-product"),
     path("deleted/", views.DeletedProductsView.as_view(), name="deleted-products"),
+    path("action/", views.ProductActionView.as_view(), name="products-ation"),
+    path("<int:id>/", views.ProductFormView.as_view(), name="product"),
+    # path("filters/<int:id>/delete", views.DeleteProductFiltersView.as_view(), name="delete-filter"),
+    
     path("filters/", views.ProductFiltersView.as_view(), name="product-filters"),
     path("filters/add", views.AddProductFilterView.as_view(), name="add-filter"),
     path("filters/action", views.ProductFiltersActionView.as_view(), name="filter-action"),
-    # path("filters/<int:id>/delete", views.DeleteProductFiltersView.as_view(), name="delete-filter"),
     path("filters/<int:id>", views.ProductFilterFormView.as_view(), name="filter"),
-    path("action/", views.ProductActionView.as_view(), name="products-ation"),
-    path("<int:id>/", views.ProductFormView.as_view(), name="product"),
-    path("add/", views.AddProductView.as_view(), name="add-product"),
-    path("categories/", views.CategoryView.as_view(), name="categories"),
+    # path("filters/<int:id>/delete", views.DeleteProductFiltersView.as_view(), name="delete-filter"),
+
+    path("options/", views.ProductOptionsView.as_view(), name="product-options"),
+    path("options/add", views.AddProductOptionView.as_view(), name="add-option"),
+    path("options/<int:id>", views.ProductOptionFormView.as_view(), name="option"),
+    path("options/action", views.ProductOptionsActionView.as_view(), name="option-action"),
+    # path("filters/<int:id>/delete", views.DeleteProductFiltersView.as_view(), name="delete-filter"),
+
+    path("categories/", views.CategoryView.as_view(), name="product-categories"),
     path("categories/<int:id>", views.CategoryFormView.as_view(), name="category"),
     path("categories/add", views.AddCategoryView.as_view(), name="add-category"),
     path("categories/action", views.CategoryActionView.as_view(), name="category-action"),

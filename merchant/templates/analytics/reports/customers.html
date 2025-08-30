@@ -1,0 +1,57 @@
+<!-- 👥 Customers Report -->
+<div class="report-header">
+    <h3>تقرير العملاء - {{ time_period|title }}</h3>
+    <div class="report-stats">
+        <div class="stat-item">
+            <span class="stat-value">{{ total_customers }}</span>
+            <span class="stat-label">إجمالي العملاء</span>
+        </div>
+        <div class="stat-item">
+            <span class="stat-value">{{ new_customers }}</span>
+            <span class="stat-label">عملاء جدد</span>
+        </div>
+        <div class="stat-item">
+            <span class="stat-value">{{ retention_rate }}</span>
+            <span class="stat-label">معدل الاحتفاظ</span>
+        </div>
+    </div>
+</div>
+
+<div class="table-container">
+    <table class="products-table">
+        <thead>
+            <tr>
+                <th>اسم العميل</th>
+                <th>البريد الإلكتروني</th>
+                <th>تاريخ التسجيل</th>
+                <th>عدد الطلبات</th>
+                <th>إجمالي المشتريات</th>
+                <th>الحالة</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for customer in customers_data %}
+            <tr>
+                <td>{{ customer.name }}</td>
+                <td>{{ customer.email }}</td>
+                <td>{{ customer.registration_date }}</td>
+                <td>{{ customer.orders_count }}</td>
+                <td><span class="product-price">{{ customer.total_purchases }}</span></td>
+                <td>
+                    {% if customer.status == 'active' %}
+                        <span class="status-badge status-active">نشط</span>
+                    {% else %}
+                        <span class="status-badge status-inactive">غير نشط</span>
+                    {% endif %}
+                </td>
+            </tr>
+            {% empty %}
+            <tr>
+                <td colspan="6" style="text-align: center; padding: 2rem; color: var(--text-muted);">
+                    لا توجد بيانات متاحة
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>

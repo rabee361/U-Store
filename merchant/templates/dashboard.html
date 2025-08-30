@@ -1,0 +1,143 @@
+{% extends 'layout/base.html' %}
+
+{% block content %}
+    <!-- 🧭 Breadcrumbs -->
+    <nav class="breadcrumb">
+        <a href="#" class="breadcrumb-item">الرئيسية</a>
+        <span class="breadcrumb-separator"><i class="fas fa-chevron-right"></i></span>
+        <span class="breadcrumb-item active">لوحة التحكم</span>
+    </nav>
+
+    <!-- 🎯 Dashboard Cover Page -->
+    <div class="dashboard-cover">
+        <div class="cover-content">
+            <h1 class="cover-title">Old Store</h1>
+            <p class="cover-subtitle">لوحة تحكم المتجر الإلكتروني</p>
+        </div>
+        <div class="cover-stats">
+            <div class="stat-item">
+                <span class="stat-number">2,112</span>
+                <span class="stat-label">إجمالي المبيعات</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-number">1,543</span>
+                <span class="stat-label">العملاء النشطين</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-number">89</span>
+                <span class="stat-label">المنتجات</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="dashboard-content">
+        <div class="collapsible-container" data-collapsed="true">
+            <div class="collapsible-header">
+                <h2 class="collapsible-title">جهاز المتجر الخاص بك</h2>
+                <button class="collapsible-toggle" aria-label="Toggle section">
+                    <i class="fas fa-chevron-down"></i>
+                </button>
+            </div>
+            <div class="collapsible-content">
+                <div class="navigation-links">
+                    <a href="#" class="nav-link-item">
+                        <div class="nav-content">
+                            <h3>التبعات</h3>
+                            <i class="fas fa-chevron-left"></i>
+                        </div>
+                    </a>
+
+                    <a href="#" class="nav-link-item">
+                        <div class="nav-content">
+                            <h3>أضف متجرك الأول الخاص بك</h3>
+                            <i class="fas fa-chevron-left"></i>
+                        </div>
+                    </a>
+
+                    <a href="#" class="nav-link-item">
+                        <div class="nav-content">
+                            <h3>رابط المتجر</h3>
+                            <i class="fas fa-chevron-left"></i>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div class="collapsible-container" data-collapsed="false">
+            <div class="collapsible-header">
+                <h2 class="collapsible-title">أهم قراءات المتجر</h2>
+                <button class="collapsible-toggle" aria-label="Toggle section">
+                    <i class="fas fa-chevron-up"></i>
+                </button>
+            </div>
+            <div class="collapsible-content">
+                <div class="analytics-grid">
+                    <div class="stat-card">
+                        <div class="stat-card-header">
+                            <h3>عدد الطلبات الإجمالي</h3>
+                            <i class="fas fa-shopping-cart stat-icon"></i>
+                        </div>
+                        <div class="stat-card-body">
+                            <span class="stat-value">2112</span>
+                            <span class="stat-change positive">+13 من الشهر الماضي</span>
+                        </div>
+                    </div>
+
+                    <div class="stat-card">
+                        <div class="stat-card-header">
+                            <h3>عدد العملاء الإجمالي</h3>
+                            <i class="fas fa-users stat-icon"></i>
+                        </div>
+                        <div class="stat-card-body">
+                            <span class="stat-value">2112</span>
+                            <span class="stat-change positive">+13 من الشهر الماضي</span>
+                        </div>
+                    </div>
+
+                    <div class="stat-card">
+                        <div class="stat-card-header">
+                            <h3>عدد الطلبات الإجمالي</h3>
+                            <i class="fas fa-box stat-icon"></i>
+                        </div>
+                        <div class="stat-card-body">
+                            <span class="stat-value">2112</span>
+                            <span class="stat-change negative">-13 من الشهر الماضي</span>
+                        </div>
+                    </div>
+
+                    <div class="stat-card">
+                        <div class="stat-card-header">
+                            <h3>عدد العملاء الإجمالي</h3>
+                            <i class="fas fa-chart-line stat-icon"></i>
+                        </div>
+                        <div class="stat-card-body">
+                            <span class="stat-value">2112</span>
+                            <span class="stat-change positive">+13 من الشهر الماضي</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="collapsible-container" data-collapsed="true">
+            <div class="collapsible-header">
+                <h2 class="collapsible-title">دخول إحصائيات مختلفة</h2>
+                <button class="collapsible-toggle" aria-label="Toggle section">
+                    <i class="fas fa-chevron-down"></i>
+                </button>
+            </div>
+            <div class="collapsible-content">
+                <div class="content-placeholder">
+                    <p>محتوى إضافي يمكن أن يحتوي على نماذج، جداول، أو أي محتوى آخر</p>
+                    <div class="form-group">
+                        <label class="form-label">مثال على حقل نموذج</label>
+                        <input type="text" class="form-input" placeholder="أدخل النص هنا...">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+{% endblock %}

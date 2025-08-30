@@ -1,0 +1,13 @@
+ :root { 
+  --navbar-height: 60px;
+  --navbar-bg-color: #ffffff;
+  --navbar-text-color: #333333;
+  --navbar-link-hover: #f5f5f5;
+  --navbar-border-color: #eeeeee;
+  --navbar-hamburger-color: #333333;
+  --navbar-cart-count-bg: #ff4444;
+  --navbar-cart-count-color: #ffffff;
+  --navbar-spacing: 1rem;
+  --navbar-max-width: 1200px;
+  --navbar-breakpoint: 768px;
+}

@@ -1,0 +1,45 @@
+{% load static %}
+
+<nav class="navbar">
+    <div class="navbar-container">
+        <div class="navbar-brand">
+            <a href="#">
+                <img src="{% static 'images/logo.png' %}" alt="Store Logo" class="logo">
+            </a>
+        </div>
+        
+        <button class="hamburger" aria-label="Toggle navigation">
+            <span class="hamburger-line"></span>
+            <span class="hamburger-line"></span>
+            <span class="hamburger-line"></span>
+        </button>
+        
+        <ul class="nav-links">
+            <li class="nav-item"><a href="#" class="nav-link">Products</a></li>
+            <li class="nav-item"><a href="#" class="nav-link">Categories</a></li>
+            <li class="nav-item"><a href="#" class="nav-link">About Us</a></li>
+            <li class="nav-item"><a href="#" class="nav-link">Contact</a></li>
+        </ul>
+        
+        <div class="support-info">
+            <a href="mailto:support@store.com" class="support-email">support@store.com</a>
+            <span class="support-phone">+1 (555) 123-4567</span>
+        </div>
+        
+        <div class="nav-actions">
+            <button class="search-btn" aria-label="Search">
+                <i class="fas fa-search"></i>
+            </button>
+            <button class="wishlist-btn" aria-label="Wishlist">
+                <i class="fas fa-heart"></i>
+                <span class="item-count">3</span>
+            </button>
+            <button class="cart-btn" aria-label="Shopping Cart">
+                <i class="fas fa-shopping-cart"></i>
+                <span class="item-count">5</span>
+            </button>
+        </div>
+    </div>
+</nav>
+
+<script src="{% static 'js/theme/theme3/main.js' %}"></script>

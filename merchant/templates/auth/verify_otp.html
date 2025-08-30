@@ -1,0 +1,83 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>رمز التحقق - متجر</title>
+    <link rel="stylesheet" href="{% static 'css/auth.css' %}">
+</head>
+<body>
+    <div class="auth-container">
+        {% include 'auth/navbar.html' %}
+ 
+        <!-- Verify OTP Card -->
+        <div class="auth-card">
+            <h1 class="auth-card-title">رمز التحقق</h1>
+
+            <p class="auth-text">أدخل رمز التحقق المرسل إلى إيميلك</p>
+
+            <!-- Display messages -->
+            {% if messages %}
+                {% for message in messages %}
+                    <div class="alert alert-{{ message.tags }}">
+                        {{ message }}
+                    </div>
+                {% endfor %}
+            {% endif %}
+
+            <form class="auth-form" method="post">
+                {% csrf_token %}
+
+                <!-- Display form errors -->
+                {% if form.non_field_errors %}
+                    <div class="error-message">
+                        {% for error in form.non_field_errors %}
+                            <p>{{ error }}</p>
+                        {% endfor %}
+                    </div>
+                {% endif %}
+
+                <!-- OTP Input Fields -->
+                <div class="otp-container">
+                    <input type="text" class="otp-input" maxlength="1" name="otp1" required>
+                    <input type="text" class="otp-input" maxlength="1" name="otp2" required>
+                    <input type="text" class="otp-input" maxlength="1" name="otp3" required>
+                    <input type="text" class="otp-input" maxlength="1" name="otp4" required>
+                    <input type="text" class="otp-input" maxlength="1" name="otp5" required>
+                    <input type="text" class="otp-input" maxlength="1" name="otp6" required>
+                </div>
+
+                <button type="submit" class="auth-button">
+                    المتابعة
+                </button>
+
+                <div class="auth-timer">
+                    إعادة الإرسال بعد التحديد: 01:22
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        // OTP input auto-focus functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const otpInputs = document.querySelectorAll('.otp-input');
+
+            otpInputs.forEach((input, index) => {
+                input.addEventListener('input', function() {
+                    if (this.value.length === 1 && index < otpInputs.length - 1) {
+                        otpInputs[index + 1].focus();
+                    }
+                });
+
+                input.addEventListener('keydown', function(e) {
+                    if (e.key === 'Backspace' && this.value === '' && index > 0) {
+                        otpInputs[index - 1].focus();
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>

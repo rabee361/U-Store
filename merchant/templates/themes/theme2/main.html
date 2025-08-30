@@ -1,0 +1,67 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Store Theme</title>
+    <link rel="stylesheet" href="/static/css/themes/theme2/main.css">
+</head>
+<body>
+
+    {% include "themes/theme2/navbar.html" %}
+
+    {% include "themes/theme2/hero.html" %}
+
+    <!-- Products Bento Grid -->
+    <section class="products-section">
+        <h2 class="section-title">Featured Products</h2>
+        <div class="products-grid">
+            <div class="product-card card-large">
+                <img src="https://via.placeholder.com/400x300" alt="Product 1">
+                <div class="product-info">
+                    <h3>Product One</h3>
+                    <p>Amazing description of this product</p>
+                    <span class="price">$29.99</span>
+                </div>
+            </div>
+            <div class="product-card card-small">
+                <img src="https://via.placeholder.com/200x200" alt="Product 2">
+                <div class="product-info">
+                    <h3>Product Two</h3>
+                    <span class="price">$19.99</span>
+                </div>
+            </div>
+            <div class="product-card card-small">
+                <img src="https://via.placeholder.com/200x200" alt="Product 3">
+                <div class="product-info">
+                    <h3>Product Three</h3>
+                    <span class="price">$39.99</span>
+                </div>
+            </div>
+            <div class="product-card card-medium">
+                <img src="https://via.placeholder.com/300x200" alt="Product 4">
+                <div class="product-info">
+                    <h3>Product Four</h3>
+                    <p>Special features of this product</p>
+                    <span class="price">$49.99</span>
+                </div>
+            </div>
+            <div class="product-card card-medium">
+                <img src="https://via.placeholder.com/300x200" alt="Product 5">
+                <div class="product-info">
+                    <h3>Product Five</h3>
+                    <p>Limited edition item</p>
+                    <span class="price">$59.99</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    {% include "themes/theme2/reviews.html" %}
+
+    {% include "themes/theme2/footer.html" %}
+
+    <script src="/static/js/theme/theme2/main.js"></script>
+</body>
+</html>
